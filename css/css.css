@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+h1, h2, h3 {
+	font-family: 'Oswald', sans-serif;
+	color: rgba(48,63,159, 1);
+	text-transform: uppercase;
+}
+input, textarea {
+	border:2px solid #f8f9fa!important;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: rgba(48,63,159, 1);
+	font-family: 'Oswald', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+	color: rgba(48,63,159, 0.8)
+}
+.current {
+	color: rgba(255,87,34, 1)!important;
+}
+.btn-primary {
+	background: rgba(255,87,34, 1);
+	border-color: #ff5722;
+}
+.btn-primary:hover, .btn-primary:focus {
+	background: rgba(234,74,31, 1)!important;
+	border-color: #ff5722;
+}
+.btn-outline-primary {
+    color: #ff5722;
+	border-color: #ff5722;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: rgba(234,74,31, 1)!important;
+	border-color: #ff5722;
+}
+.hero {
+	background: url("../img/bg-hero-1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+.hero .logo {
+	margin-top: 10vh;
+	text-align: center;
+}
+.hero .logo img {
+	max-width: 400px;
+}
+.text {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10vh;
+}
+/*
+@media (max-width: 767px) {
+.hero {
+	background: url("../img/bg-hero-2.jpg");
+	}
+}
+*/
+
