@@ -5,6 +5,10 @@ h1, h2, h3 {
 	color: rgba(48,63,159, 1);
 	text-transform: uppercase;
 }
+h3 {
+	color: black;
+	font-size: 20px;
+}
 input, textarea {
 	border:2px solid #f8f9fa!important;
 }
@@ -54,6 +58,14 @@ input, textarea {
 	padding-top: 20px;
 	padding-bottom: 10vh;
 }
+.the-latest a {
+	color: #000!important;
+}
+.external-links a {
+	font-size: 1.5rem;
+	color: #000!important;
+}
+
 /*
 @media (max-width: 767px) {
 .hero {
