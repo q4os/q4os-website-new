@@ -25,7 +25,8 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS" style="width: 150px;"></a>
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
 			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -55,9 +56,10 @@
 				</li>
 			</ul>
 			<span class="navbar-text">
-				<a class="btn btn-primary text-white"
-					href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EX94Y4X4FJWKG"
-					target="_blank">Donate</a>
+				<button type="button" class="btn btn-primary text-white" data-toggle="modal"
+					data-target="#donationmodal">
+					Donate
+				</button>
 			</span>
 		</div>
 	</nav>
@@ -144,7 +146,46 @@
 			</div>
 		</footer>
 	</div>
+	<!-- Donation Modal -->
+	<div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="col-12 mx-auto bg-light p-4 mb-5 rounded text-center">
 
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+							<input type="hidden" name="business" value="info@q4os.org" />
+							<input type="hidden" name="cmd" value="_donations" />
+							<input type="hidden" name="item_name" value="Q4OS Development Support" />
+							<input type="hidden" name="currency_code" value="USD" />
+							<input type="hidden" name="no_shipping" value="1">
+							<input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+							<input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+							<input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+							<input type="hidden" name="cn"
+								value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+							<label for="amount">USD $</label>
+							<input style="margin-bottom:2px; margin-left:5px; background:rgba(48,63,159, 1);"
+								type="text" id="amount" name="amount" maxlength="4" size="2" value="12"
+								class="rounded text-white text-center" />
+							<button style="vertical-align: bottom; margin-left:10px" name="submit"
+								class="btn btn-primary">Donate</button>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"

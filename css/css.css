@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-h1, h2, h3 {
+h1, h2, h3, label {
 	font-family: 'Oswald', sans-serif;
 	color: rgba(48,63,159, 1);
 	text-transform: uppercase;
