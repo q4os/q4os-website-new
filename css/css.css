@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* CSS Document */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:wght@400;700&display=swap');
 
@@ -138,11 +138,25 @@ input, textarea {
 
     .paySystem div.selected {
         font-weight: bold;
-        background: var(--color);
+
         color: white;
     }
 
-    /*      .paySystem div.opt:after {
+    .paySystem #opt1.selected {
+        background: linear-gradient(135deg, rgba(194,107,0,1) 9%, rgba(162,89,0,1) 55%, rgba(255,140,0,1) 84%);
+    }
+    .paySystem #opt2.selected {
+        background: linear-gradient(135deg, #8a8a8a 9%, #d6d6d6 55%, #8a8a8a 84%);
+    }
+    .paySystem #opt3.selected {
+        background: linear-gradient(135deg, rgba(177,133,0,1) 9%, rgba(254,224,133,1) 55%, rgba(177,133,0,1) 84%);
+    }
+    .paySystem #opt4.selected {
+        background: gray;
+    }
+
+
+/*      .paySystem div.opt:after {
         height: 0;
         width: 100%;
         content: " ";
@@ -160,17 +174,16 @@ input, textarea {
         height: 5px;
         top: 15px;
       } */
-
-    .paySystem div.opt input {
-        background: transparent;
-        border-top: none !important;
-        border-left: none !important;
-        border-right: none !important;
-        border-bottom: 1px solid;
-        outline: none;
-        color: black;
-        width: 4em;
-    }
+.paySystem div.opt input {
+    background: transparent;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid;
+    outline: none;
+    color: black;
+    width: 4em;
+}
 
     .paySystem div.selected.opt input {
         color: white;
