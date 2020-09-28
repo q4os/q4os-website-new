@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Q4OS | Downloads</title>
-	<!-- Bootstrap -->
-	<link href="https://fonts.googleapis.com/css?family=Oswald:300,500|Roboto" rel="stylesheet">
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/css.css">
-	<meta property="og:image" content="og.jpg" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Q4OS | Downloads</title>
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <meta property="og:image" content="og.jpg" />
+    <script src="js/javascript.js"></script>
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
 		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
 				style="width: 150px;"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -203,32 +203,98 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<div class="col-12 mx-auto bg-light p-4 mb-5 rounded text-center">
+                <div class="modal-body">
+                        <p>If you like Q4OS, please donate us.</p>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="business" value="info@q4os.org" />
+                            <input type="hidden" name="cmd" value="_donations" />
+                            <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="no_shipping" value="1">
+                            <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                            <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                            <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                            <input type="hidden" name="cn"
+                                   value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
 
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-							<input type="hidden" name="business" value="info@q4os.org" />
-							<input type="hidden" name="cmd" value="_donations" />
-							<input type="hidden" name="item_name" value="Q4OS Development Support" />
-							<input type="hidden" name="currency_code" value="USD" />
-							<input type="hidden" name="no_shipping" value="1">
-							<input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
-							<input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
-							<input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
-							<input type="hidden" name="cn"
-								value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
-							<label for="amount">USD $</label>
-							<input style="margin-bottom:2px; margin-left:5px; background:rgba(48,63,159, 1);"
-								type="text" id="amount" name="amount" maxlength="4" size="2" value="12"
-								class="rounded text-white text-center" />
-							<button style="vertical-align: bottom; margin-left:10px" name="submit"
-								class="btn btn-primary">Donate</button>
-						</form>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
+                            <input type="hidden" name="amount" id="amount" />
+
+                            <div class="paySystem">
+                                <div class="opt" id="opt1" onclick="select(this); price=1">
+                                    1 $
+                                </div>
+                                <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                                <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                                <div class="opt other" id="opt4">
+                                    <label>Other: </label><input type="number"
+                                                                 id="ownPrice"
+                                                                 onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                                </div>
+                                <div class="splitLine"></div>
+                                <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                    Donate
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <script>
+                            var price = 10;
+                            var ownPrice = false;
+                            function select(object) {
+                                console.log("select func");
+                                document.getElementById("opt1").classList.remove("selected");
+                                document.getElementById("opt2").classList.remove("selected");
+                                document.getElementById("opt3").classList.remove("selected");
+                                document.getElementById("opt4").classList.remove("selected");
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                                ownPrice = false;
+                                if (object != document.getElementById("opt4"))
+                                    document.getElementById("ownPrice").value = "";
+                                object.classList.add("selected");
+                            }
+
+                            function updateOwnPrice(object) {
+                                document.getElementById("opt1").classList.remove("selected");
+                                document.getElementById("opt2").classList.remove("selected");
+                                document.getElementById("opt3").classList.remove("selected");
+                                document.getElementById("opt4").classList.add("selected");
+                                ownPrice = true;
+
+                                if (object.value == "0") {
+                                    document.getElementById("sendPriceButt").innerText = "Get free";
+                                } else {
+                                    document.getElementById("sendPriceButt").innerText = "Donate";
+                                }
+
+                                if (object.value == "") {
+                                    document.getElementById("sendPriceButt").classList.add("disabled");
+                                    document.getElementById("sendPriceButt").disabled = true;
+                                } else {
+                                    document.getElementById("sendPriceButt").classList.remove("disabled");
+                                    document.getElementById("sendPriceButt").disabled = false;
+                                }
+                            }
+
+                            function sendPrice() {
+                                if (ownPrice) {
+                                    price = parseInt(document.getElementById("ownPrice").value);
+                                }
+
+                                window.location.href = "http://google.com/search?q=" + price;
+                            }
+                        </script>
+
+
+
+
+
+                        <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>				</div>
 			</div>
 		</div>
 	</div>
