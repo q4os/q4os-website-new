@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Q4OS | Donate</title>
+    <title>Q4OS | Support Us</title>
     <!-- Bootstrap -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -85,74 +85,24 @@
             <input type="hidden" name="amount" id="amount" />
 
             <div class="paySystem">
-                <div class="opt" id="opt1" onclick="select(this); price=1">
+                <div class="opt" id="opt1" onclick="select(this)">
                     1 $
                 </div>
-                <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
-                <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                <div class="opt" id="opt2" onclick="select(this)">12 $</div>
+                <div class="opt" id="opt3" onclick="select(this)">50 $</div>
                 <div class="opt other" id="opt4">
                     <label>Other: </label><input type="number"
                                                  id="ownPrice"
-                                                 onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+                                                 onkeyup="updateOwnPrice(this)" $ />
 
                 </div>
                 <div class="splitLine"></div>
-                <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = window.price">
                     Donate
                 </button>
             </div>
 
         </form>
-
-        <script>
-            var price = 10;
-            var ownPrice = false;
-            function select(object) {
-                console.log("select func");
-                document.getElementById("opt1").classList.remove("selected");
-                document.getElementById("opt2").classList.remove("selected");
-                document.getElementById("opt3").classList.remove("selected");
-                document.getElementById("opt4").classList.remove("selected");
-                document.getElementById("sendPriceButt").classList.remove("disabled");
-                document.getElementById("sendPriceButt").disabled = false;
-
-                document.getElementById("sendPriceButt").innerText = "Donate";
-                ownPrice = false;
-                if (object != document.getElementById("opt4"))
-                    document.getElementById("ownPrice").value = "";
-                object.classList.add("selected");
-            }
-
-            function updateOwnPrice(object) {
-                document.getElementById("opt1").classList.remove("selected");
-                document.getElementById("opt2").classList.remove("selected");
-                document.getElementById("opt3").classList.remove("selected");
-                document.getElementById("opt4").classList.add("selected");
-                ownPrice = true;
-
-                if (object.value == "0") {
-                    document.getElementById("sendPriceButt").innerText = "Get free";
-                } else {
-                    document.getElementById("sendPriceButt").innerText = "Donate";
-                }
-
-                if (object.value == "") {
-                    document.getElementById("sendPriceButt").classList.add("disabled");
-                    document.getElementById("sendPriceButt").disabled = true;
-                } else {
-                    document.getElementById("sendPriceButt").classList.remove("disabled");
-                    document.getElementById("sendPriceButt").disabled = false;
-                }
-            }
-
-            function sendPrice() {
-                if (ownPrice) {
-                    price = parseInt(document.getElementById("ownPrice").value);
-                }
-
-                window.location.href = "http://google.com/search?q=" + price;
-            }
-        </script>
     </div>
     <div class="col-6 col-lg-9">
         <a style="color:rgba(255,87,34, 1); border-bottom: 1px dotted" href="downloads.html"><b>Not now, take me to the download &gt;</b></a>
@@ -260,6 +210,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script src="js/donate.js"></script>
 </body>
 
 </html>
