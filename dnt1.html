@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Support Q4OS development with a donation. Help us create a better Linux desktop operating system for everyday use. Secure PayPal donations accepted.">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Q4OS | Donate</title>
     <!-- Bootstrap -->
@@ -23,6 +24,9 @@
 </head>
 
 <body>
+	<!-- Skip navigation link for accessibility -->
+	<a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2" style="z-index: 1050;">Skip to main content</a>
+	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
 		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
 				style="width: 150px;"></a>
@@ -58,9 +62,16 @@
 	</nav>
 	<!-- Wrapper -->
 	<div id="wrapper">
+		<main id="main-content">
 		<div class="container">
 			<div class="row mt-5 mb-3">
 				<div class="col-11">
+					<nav aria-label="Breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Donate</li>
+						</ol>
+					</nav>
 					<h1>Please donate</h1>
 <p>We kindly ask you to help us develop the perfect operating system for everyday use. Please choose your donation amount.</p>
 
@@ -168,6 +179,7 @@
 </div>
 </div>
 		</div>
+		</main>
 
 		
 			</div>

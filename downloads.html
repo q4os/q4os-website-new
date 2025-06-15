@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Download Q4OS Linux operating system. Get the latest Aquarius release for x86/x64, i386, ARM, and Raspberry Pi. Free, fast, and lightweight desktop OS.">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Q4OS | Downloads</title>
     <!-- Bootstrap -->
@@ -23,6 +24,9 @@
 </head>
 
 <body>
+	<!-- Skip navigation link for accessibility -->
+	<a class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2" href="#main-content">Skip to main content</a>
+	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
 		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
 				style="width: 150px;"></a>
@@ -36,7 +40,7 @@
 					<a class="nav-link" href="index.html">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link current" href="downloads.html">Downloads</a>
+					<a class="nav-link current" href="downloads.html" role="menuitem" aria-current="page">Downloads</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="documents.html">Documentation</a>
@@ -58,9 +62,16 @@
 	</nav>
 	<!-- Wrapper -->
 	<div id="wrapper">
+		<main id="main-content">
 		<div class="container">
 			<div class="row mt-5 mb-3">
 				<div class="col-11">
+					<nav aria-label="Breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Downloads</li>
+						</ol>
+					</nav>
 					<h1>Q4OS Downloads</h1>
 				</div>
 			</div>
@@ -115,6 +126,7 @@
 				</div>
 			</div>
 		</div>
+		</main>
 
 
 
