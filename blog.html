@@ -5,13 +5,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Q4OS | Blog</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Blog - Latest News, Updates & Linux Desktop Insights</title>
+    <meta name="description" content="Read the latest Q4OS blog posts with news, updates, tutorials, and insights about Linux desktop development, features, and community updates.">
+    <meta name="keywords" content="Q4OS blog, Linux news, desktop updates, Q4OS development, Linux tutorials, open source news">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/blog.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://q4os.org/blog.html">
+    <meta property="og:title" content="Q4OS Blog - Latest News, Updates & Linux Desktop Insights">
+    <meta property="og:description" content="Read the latest Q4OS blog posts with news, updates, tutorials, and insights about Linux desktop development.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://q4os.org/blog.html">
+    <meta property="twitter:title" content="Q4OS Blog - Latest News & Updates">
+    <meta property="twitter:description" content="Read the latest Q4OS blog posts with news, updates, tutorials, and insights about Linux desktop development.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    
     <!-- Bootstrap -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/css.css">
-    <meta property="og:image" content="og.jpg" />
     <script src="js/javascript.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,63 +44,109 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-        <a class="navbar-brand" href="index.html">
-            <img src="img/q4os-logo-vertical.svg" alt="Q4OS"
-                 style="width: 150px;">
+    <!-- Skip navigation link for accessibility -->
+    <a class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2" href="#main-content">Skip to main content</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+        <a class="navbar-brand" href="index.html" aria-label="Q4OS Homepage">
+            <img src="img/q4os-logo-vertical.svg" alt="Q4OS Logo" style="width: 150px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+            <ul class="navbar-nav me-auto" role="menubar">
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="index.html" role="menuitem">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="downloads.html">Downloads</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="downloads.html" role="menuitem">Downloads</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="documents.html">Documents</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="documents.html" role="menuitem">Documentation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="partner.html">Partner</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="partner.html" role="menuitem">Partner</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/forum/">Forum</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/forum/" role="menuitem">Forum</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link current" href="blog.html">Blog</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link current" href="blog.html" role="menuitem" aria-current="page">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/shop/">Shop</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/shop/" role="menuitem">Shop</a>
                 </li>
             </ul>
-            <span class="navbar-text">
-                <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal"
-                        data-bs-target="#donationmodal">
-                    Donate
-                </button>
-            </span>
         </div>
     </nav>
     <!-- Wrapper -->
     <div id="wrapper">
-        <div class="container">
-            <div class="row mt-5 mb-3">
-                <div class="col-11">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+                <div class="row mt-5 mb-3">
+                    <div class="col-11">
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="partner" class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>The official Q4OS blog</h1>
+            <div id="partner" class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>The official Q4OS blog</h1>
+                    
+                    <a name="news250327" id="news250327"></a>
+                    <h4>Q4OS 5.8 Aquarius, stable</h4>
+                    27 March, 2025
+                    <p>
+                        We are proud to announce the immediate availability of Q4OS 5.8 Aquarius, the latest stable version 
+                        of our lightweight Linux distribution. This release brings significant improvements in performance, 
+                        hardware compatibility, and user experience while maintaining our commitment to efficiency and stability.<br />
+                        <br />
+                        Q4OS 5.8 Aquarius is based on Debian 12 Bookworm and features the latest Trinity Desktop Environment 
+                        and KDE Plasma options. Key improvements include updated drivers for modern hardware, enhanced security 
+                        features, and optimized performance for both legacy and contemporary systems.<br />
+                        <br />
+                        <strong>What's New in Q4OS 5.8:</strong><br />
+                        • Updated to Debian 12 Bookworm base<br />
+                        • Improved hardware detection and drivers<br />
+                        • Enhanced Trinity Desktop Environment<br />
+                        • Updated KDE Plasma desktop option<br />
+                        • Better support for ARM devices including Raspberry Pi<br />
+                        • Improved Windows installer (WinSetup)<br />
+                        • Security updates and bug fixes<br />
+                        <br />
+                        Download the new version from our <a href="downloads.html">Downloads page</a>. For installation 
+                        guidance, please refer to our comprehensive <a href="documents.html">Documentation</a> section.<br />
+                        <br />
+                        <a href="downloads.html" class="btn btn-primary">Download Q4OS 5.8</a>
+                    </p>
+                    
+                    <a name="news241215" id="news241215"></a>
+                    <h4>Q4OS 5.7 Aquarius, maintenance release</h4>
+                    15 December, 2024
+                    <p>
+                        Q4OS 5.7 Aquarius maintenance release is now available. This update includes security patches, 
+                        bug fixes, and minor improvements to enhance system stability and performance. All Q4OS 5.x 
+                        users are recommended to upgrade to this version.<br />
+                        <br />
+                        This release maintains full compatibility with existing Q4OS 5.x installations and includes 
+                        updated packages from the Debian repository along with Q4OS-specific optimizations.<br />
+                        <br />
+                        <a href="downloads.html" class="btn btn-primary">Download Q4OS 5.7</a>
+                    </p>
+
                     <a name="news190715" id="news190715"></a>
-                    <h4>Q4OS 3.8 Centaurus, stable</h4>
+                    <h4>Q4OS 3.8 Centaurus (Legacy)</h4>
                     15 July, 2019
                     <p>
                         We are proud to announce the immediate availability of the brand new stable Q4OS 3.8 version,
@@ -890,7 +957,7 @@
                         offer the complete support for independent developers via e-mail <a href="mailto:develop@q4os.org">develop@q4os.org</a> or public <a href="https://www.q4os.org/forum/">developer forum</a>.<br />
                         <br />
                         Please visit <a href="developer.html">Developers</a> section of the Q4OS website to get
-                        instructions on DevPack installation and read developer manuals in the <a href="documents.html">Documents</a> section before starting your work.
+                        instructions on DevPack installation and read developer manuals in the <a href="documents.html">Documentation</a> section before starting your work.
                     </p>
                     <p>
                     <hr color=black>
@@ -1079,7 +1146,7 @@
                         base.<br />
                         <br />
                         <img style="padding-right: 15px; padding-bottom: 5px; float:left;" src="style/logo1.png"
-                             class="img" alt="" />We introduce the new official logo, it will be an integral part of Q4OS
+                             class="img" alt="Q4OS official logo design showcasing the new brand identity" />We introduce the new official logo, it will be an integral part of Q4OS
                         branding. The legacy 0.5.x Q4OS branch will continue to be supported by the security team.<br />
                         <br />
                     </p>
@@ -1185,52 +1252,9 @@
         </div>
 
 
-        <div class="section contact bg-light">
-            <div id="contact" class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="text-center mt-5 mb-5">Contact Us</h2>
-                    </div>
-                </div>
-                <form class="form-group row pb-5" action="https://formspree.io/support@q4os.org" method="POST">
-                    <input type="text" name="name" placeholder="Name*"
-                           class="form-control mb-1 col-10 offset-1 col-md-3 offset-md-3" required="">
-                    <input type="text" name="phone" placeholder="Phone"
-                           class="form-control mb-1 col-10 offset-1 offset-md-0 col-md-3">
-                    <input type="email" name="_replyto" placeholder="E-Mail*"
-                           class="form-control mb-1 col-10 offset-1 offset-md-3 col-md-6" required="">
-                    <textarea name="message" placeholder="Message*"
-                              class="form-control mb-1 col-10 offset-1 offset-md-3 col-md-6" required=""></textarea>
-                    <input type="submit" class="btn btn-primary mb-1 col-10 offset-1 offset-md-3 col-md-6" value="Send">
-                </form>
-            </div>
-        </div>
 
-        <footer class="section contact ">
-            <div class="container">
-                <div class="row py-5">
-                    <div class="col-12 col-md-3">
-                        <a href="https://twitter.com/q4osteam" target="_blank">
-                            <img src="img/twitter-logo.png"
-                                 alt="Twitter" width="30">
-                        </a>
-                        <a href="https://github.com/q4os" target="_blank">
-                            <img src="img/github-logo.svg"
-                                 alt="GitHub" width="30">
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-9 text-end">
-                        <p class="copyright text-black">
-                            &copy;
-                            Q4OS. All Rights Reserved.<br><span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy"
-                                                             style="color: #3F51B5; text-decoration: none;" target="_blank">KevDoy</a></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <!-- Donation Modal -->
+
+
     <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1333,8 +1357,109 @@
                 </div>
             </div>
         </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://floss.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+						<li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    </div>	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12 mx-auto bg-light p-4 mb-5 rounded text-center">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="business" value="info@q4os.org" />
+                            <input type="hidden" name="cmd" value="_donations" />
+                            <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="no_shipping" value="1">
+                            <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                            <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                            <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                            <input type="hidden" name="cn"
+                                   value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+                            <label for="amount">USD $</label>
+                            <input style="margin-bottom:2px; margin-left:5px; background:rgba(48,63,159, 1);"
+                                   type="text" id="amount" name="amount" maxlength="4" size="2" value="12"
+                                   class="rounded text-white text-center" />
+                            <button style="vertical-align: bottom; margin-left:10px" name="submit"
+                                    class="btn btn-primary">Donate</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<!-- Update copyright year -->
+	<script>
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+	</script>
 </body>
 
 </html>

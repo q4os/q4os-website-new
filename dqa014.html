@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- SEO Meta Tags -->
+    <title>Q4OS for Windows Setup Guide - Install Q4OS Alongside Windows</title>
+    <meta name="description" content="Complete guide for installing Q4OS alongside Windows using the Windows installer. Compatible with Windows 11, 10, 8, and 7. Includes boot menu and uninstallation instructions.">
+    <meta name="keywords" content="Q4OS Windows installer, dual boot Windows Q4OS, Q4OS WinSetup, install Q4OS Windows, Q4OS Windows 11">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa014.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa014.html">
+    <meta property="og:title" content="Q4OS for Windows Setup Guide">
+    <meta property="og:description" content="Complete guide for installing Q4OS alongside Windows using the Windows installer.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa014.html">
+    <meta property="twitter:title" content="Q4OS for Windows Setup Guide">
+    <meta property="twitter:description" content="Complete guide for installing Q4OS alongside Windows using the Windows installer.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Q4OS for Windows Setup Guide",
+        "description": "Complete guide for installing Q4OS alongside Windows using the Windows installer",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partnership</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<main id="main-content">
+			<div class="container">
+				<!-- Breadcrumb navigation -->
+				<nav aria-label="Breadcrumb" class="mt-3">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+						<li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Windows Setup Guide</li>
+					</ol>
+				</nav>
+
+				<div class="row mt-5 mb-3">
+					<div class="col-12">
+						<h1>Q4OS for Windows Setup</h1>
+						<p class="lead">Install Q4OS alongside Windows in an easy way without modifying your existing Windows operating system.</p>
+
+						<div class="alert alert-info" role="alert">
+							<strong>Compatibility:</strong> This installer is compatible with Windows 11, 10, 8, and 7 versions and can handle Secure Boot if available in the PC firmware.
+						</div>
+
+						<h2 id="introduction">1. Introduction</h2>
+						<p>The Windows installer allows you to install Q4OS alongside Windows in an easy way. You won't have to modify your existing Windows operating system, nor any of your software installed. Q4OS is installed inside Windows as any other application - no separate partitions, just a folder in the Windows filesystem.</p>
+						
+						<p>Once you install Q4OS, you'll be able to switch back and forth between Windows and Q4OS each time you restart your computer. This installer is compatible with Windows 11/10/8/7 versions and can handle Secure Boot if available in the PC firmware.</p>
+						
+						<div class="row my-4">
+							<div class="col-md-6">
+								<div class="card h-100">
+									<div class="card-body">
+										<h5 class="card-title">🚀 Perfect Complement</h5>
+										<p class="card-text">Q4OS is not intended to be a replacement, but the perfect complement to an existing Windows installation. If your Windows becomes lagging, it's the right time to try Q4OS out.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="card h-100">
+									<div class="card-body">
+										<h5 class="card-title">⚡ Lightweight & Fast</h5>
+										<p class="card-text">Q4OS is a lightweight, snappy and easy to use operating system with a variety of applications available in repositories.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h2 id="installation">2. Installation</h2>
+						<p>First, you need to get the setup executable, so download the file "q4os-winsetup-5.8-r1.zip" from the <a href="downloads.html" class="text-decoration-underline">downloads section</a> of the Q4OS website. Unzip and launch it the usual way by double-clicking from Windows file explorer.</p>
+						
+						<div class="alert alert-warning" role="alert">
+							<strong>Important:</strong> Keep the file explorer window pointing to the unzipped file throughout the installation process, to make temporary files available for the installer.
+						</div>
+
+						<h3 id="security-warnings">Security Warnings</h3>
+						<p>On Windows 11/10, depending on the security policy of your system, a popup window titled "Windows protected your PC" may appear when trying to execute the installer. You only need to click "More info" and confirm the Q4OS setup is safe to continue.</p>
+						
+						<div class="row my-3">
+							<div class="col-md-6">
+								<div class="card">
+									<div class="card-body">
+										<h6 class="card-title">Step 1: Click "More info"</h6>
+										<p class="card-text small">When Windows Defender SmartScreen appears, click on the "More info" link to reveal additional options.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="card">
+									<div class="card-body">
+										<h6 class="card-title">Step 2: Click "Run anyway"</h6>
+										<p class="card-text small">After clicking "More info", a "Run anyway" button will appear. Click it to proceed with the installation.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h3 id="installation-process">Installation Process</h3>
+						<p>In the User Account Control (UAC) window, click "Yes" and the Q4OS setup window will appear. Follow the instructions of the guide-style installer. You will be asked to choose the storage space - this means how much storage you would like to assign for Q4OS on your Windows drive.</p>
+						
+						<div class="alert alert-info" role="alert">
+							<strong>Installation Time:</strong> The installer will start downloading, extracting and expanding the target image file. Installation takes some time, so please be patient.
+						</div>
+
+						<p>Once the installation process has finished, close the installer window and restart your computer. Automatic post-install steps take place at the first boot in text mode - they last from seconds up to a few minutes depending on the disk size selected.</p>
+
+						<div class="alert alert-warning" role="alert">
+							<strong>Do not interrupt:</strong> Don't interrupt running tasks and wait for the installer to complete the operations. Once finished, the system is fully set up and ready to run either Windows or Q4OS.
+						</div>
+
+						<h2 id="boot-menu">3. Boot Menu</h2>
+						<p>You will be allowed to select either Windows or Q4OS entry at boot time, as the installer registers a Q4OS entry into the UEFI boot menu. However, on some computers, firmware forces the Windows bootloader to be the only one in the boot list.</p>
+
+						<p>This means by default, you won't see the Q4OS entry when you boot your computer. Your computer will continue to boot into Windows and it will appear that nothing has happened. To boot into Q4OS, restart your computer and press the function key to pull up the boot menu.</p>
+
+						<h3 id="boot-keys">Boot Menu Keys by Manufacturer</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<table class="table table-sm">
+									<thead>
+										<tr>
+											<th>Manufacturer</th>
+											<th>Boot Keys</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr><td>Acer</td><td>Esc, F9, F12</td></tr>
+										<tr><td>ASUS</td><td>Esc, F8</td></tr>
+										<tr><td>Compaq</td><td>Esc, F9</td></tr>
+										<tr><td>Dell</td><td>F12</td></tr>
+										<tr><td>EMachines</td><td>F12</td></tr>
+										<tr><td>HP</td><td>Esc, F9</td></tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-6">
+								<table class="table table-sm">
+									<thead>
+										<tr>
+											<th>Manufacturer</th>
+											<th>Boot Keys</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr><td>Intel</td><td>F10</td></tr>
+										<tr><td>Lenovo</td><td>F8, F10, F12</td></tr>
+										<tr><td>NEC</td><td>F5</td></tr>
+										<tr><td>Packard Bell</td><td>F8</td></tr>
+										<tr><td>Samsung</td><td>Esc, F12</td></tr>
+										<tr><td>Sony</td><td>F11, F12</td></tr>
+										<tr><td>Toshiba</td><td>F12</td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="alert alert-info" role="alert">
+							<strong>Timing:</strong> You need to tap the function key straight away and before Windows boots. This will bring up a menu where you can choose to boot either Windows or Q4OS.
+						</div>
+
+						<h3 id="secure-boot-issues">Secure Boot Issues</h3>
+						<p>If Q4OS doesn't start when selected from the boot menu, you would need to enter BIOS setup and switch the Secure Boot mode to "Audit mode" instead of "Deployed mode". Another way to make Q4OS bootable would be to turn Secure Boot off completely.</p>
+
+						<h2 id="uninstallation">4. Uninstallation</h2>
+						<p>Uninstalling Q4OS is a simple matter of running the downloaded executable again, which will prompt you to uninstall the existing Q4OS operating system. Just launch the "q4os-winsetup.exe" installer again and the uninstall wizard starts.</p>
+
+						<div class="alert alert-success" role="alert">
+							<strong>Clean Removal:</strong> The uninstaller wipes out Q4OS completely. Uninstallation is quick and simple, and leaves no remnants or abandoned files.
+						</div>
+
+						<div class="row my-4">
+							<div class="col-md-8">
+								<h3>Troubleshooting Tips</h3>
+								<ul>
+									<li><strong>Boot Menu Not Appearing:</strong> Try different function keys listed above for your manufacturer</li>
+									<li><strong>Q4OS Won't Start:</strong> Check Secure Boot settings in BIOS/UEFI</li>
+									<li><strong>Installation Fails:</strong> Ensure you have enough free disk space (at least 5GB recommended)</li>
+									<li><strong>Windows Blocks Installer:</strong> Use "More info" → "Run anyway" in SmartScreen</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Need Help?</h5>
+										<p class="card-text">Visit our community forum for additional support and troubleshooting assistance.</p>
+										<a href="/forum/" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">Visit Forum</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="my-5">
+						<p class="text-muted small">Q4OS for Windows setup user manual, rev. 01/2024</p>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="section contact" role="contentinfo" aria-label="Site footer">
+			<div class="container">
+				<div class="row py-5">
+					<div class="col-12 col-md-8">
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-3 mb-4">
+								<h5 class="text-primary mb-3">Q4OS</h5>
+								<nav aria-label="Main pages">
+									<ul class="list-unstyled">
+										<li><a href="index.html" class="text-decoration-underline">Home</a></li>
+										<li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+										<li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+										<li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 mb-4">
+								<h5 class="text-primary mb-3">Support</h5>
+								<nav aria-label="Support links">
+									<ul class="list-unstyled">
+										<li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+										<li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 mb-4">
+								<h5 class="text-primary mb-3">Community</h5>
+								<nav aria-label="Social media links">
+									<ul class="list-unstyled">
+										<li><a href="https://floss.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+						<li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+										<li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-12 col-sm-6 col-md-3 mb-4">
+								<h5 class="text-primary mb-3">Shop</h5>
+								<nav aria-label="Shop links">
+									<ul class="list-unstyled">
+										<li><a href="https://www.q4os.org/shop/" target="_blank" rel="noopener" class="text-decoration-underline">Q4OS Shop</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+						<div class="text-center text-md-end">
+							<p class="copyright text-black mb-0">
+								&copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+								<span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Donation Modal (placeholder for navbar) -->
+	<div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="donationModalTitle">Support Q4OS Development</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Thank you for considering a donation to support Q4OS development!</p>
+					<p>Visit our <a href="partner.html" class="text-decoration-underline">Partnership page</a> for donation options.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ6FzFczMODq3tJGJQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous"></script>
+	<!-- Update copyright year -->
+	<script>
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+	</script>
+</body>
+
+</html>

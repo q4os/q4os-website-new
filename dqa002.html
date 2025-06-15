@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Application Install Howto - Developer Guidelines & Best Practices</title>
+    <meta name="description" content="Complete guide for Q4OS application installation processes, general recommendations for developers, and best practices for application deployment.">
+    <meta name="keywords" content="Q4OS application install, Q4OS developer guide, application deployment, Q4OS package management, developer recommendations">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa002.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa002.html">
+    <meta property="og:title" content="Q4OS Application Install Howto - Developer Guidelines">
+    <meta property="og:description" content="Complete guide for Q4OS application installation processes and developer recommendations.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa002.html">
+    <meta property="twitter:title" content="Q4OS Application Install Howto - Developer Guidelines">
+    <meta property="twitter:description" content="Complete guide for Q4OS application installation processes and developer recommendations.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Q4OS Application Install Howto - Developer Guidelines",
+        "description": "Complete guide for Q4OS application installation processes and developer recommendations",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Application Install Howto</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-11">
+                        <h1>Q4OS Application Install Howto</h1>
+                        <p class="lead">General recommendations for developers creating application installers for Q4OS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Overview</h2>
+                        <p>This guide provides comprehensive instructions and best practices for developers who want to create application installers for Q4OS. It covers the recommended installation methods, packaging standards, and deployment strategies that ensure compatibility with the Q4OS Trinity desktop environment.</p>
+
+                        <h2>Installation Methods</h2>
+                        
+                        <h3>1. Debian Package Installation</h3>
+                        <p>The preferred method for installing applications on Q4OS is through Debian packages (.deb files). This ensures proper integration with the system package manager and dependency resolution.</p>
+                        
+                        <h4>Creating a .deb Package</h4>
+                        <pre><code># Basic package structure
+your-application/
+├── DEBIAN/
+│   ├── control
+│   ├── postinst
+│   ├── prerm
+│   └── postrm
+├── usr/
+│   ├── bin/
+│   │   └── your-application
+│   ├── share/
+│   │   ├── applications/
+│   │   │   └── your-application.desktop
+│   │   ├── icons/
+│   │   │   └── hicolor/
+│   │   │       └── 48x48/apps/
+│   │   │           └── your-application.png
+│   │   └── doc/
+│   │       └── your-application/
+│   │           └── README
+└── etc/
+    └── your-application/
+        └── config.conf</code></pre>
+
+                        <h4>Control File Requirements</h4>
+                        <p>The DEBIAN/control file must include proper metadata:</p>
+                        <pre><code>Package: your-application
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: libc6 (&gt;= 2.31), libqt5core5a (&gt;= 5.15.0)
+Maintainer: Your Name &lt;your.email@example.com&gt;
+Description: Short description of your application
+ Longer description that explains what your application does
+ and its main features. This can span multiple lines.</code></pre>
+
+                        <h3>2. AppImage Distribution</h3>
+                        <p>AppImage is a universal application format that works well on Q4OS. It provides a self-contained application that doesn't require system-level installation.</p>
+                        
+                        <h4>AppImage Best Practices</h4>
+                        <ul>
+                            <li>Include all required libraries within the AppImage</li>
+                            <li>Test compatibility with Q4OS Trinity desktop</li>
+                            <li>Provide a .desktop file for menu integration</li>
+                            <li>Use AppImageLauncher for better user experience</li>
+                        </ul>
+
+                        <h3>3. Q4OS Software Centre Integration</h3>
+                        <p>For optimal user experience, consider integrating your application with the Q4OS Software Centre:</p>
+                        
+                        <h4>Application Categories</h4>
+                        <ul>
+                            <li><strong>Accessories:</strong> Utilities and system tools</li>
+                            <li><strong>Education:</strong> Educational software and learning tools</li>
+                            <li><strong>Games:</strong> Entertainment and gaming applications</li>
+                            <li><strong>Graphics:</strong> Image editing and design tools</li>
+                            <li><strong>Internet:</strong> Web browsers and network applications</li>
+                            <li><strong>Office:</strong> Productivity and office suites</li>
+                            <li><strong>Programming:</strong> Development tools and IDEs</li>
+                            <li><strong>Sound &amp; Video:</strong> Multimedia applications</li>
+                        </ul>
+
+                        <h2>Desktop Integration</h2>
+                        
+                        <h3>Menu Entry (.desktop file)</h3>
+                        <p>Create a proper .desktop file for Trinity desktop menu integration:</p>
+                        <pre><code>[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Your Application
+Comment=Short description of your application
+Exec=/usr/bin/your-application
+Icon=your-application
+Categories=Utility;
+Terminal=false
+StartupNotify=true
+MimeType=application/x-your-format;</code></pre>
+
+                        <h3>Icon Guidelines</h3>
+                        <ul>
+                            <li>Provide icons in standard sizes: 16x16, 22x22, 32x32, 48x48, 64x64, 128x128</li>
+                            <li>Use PNG format for better compatibility</li>
+                            <li>Follow the FreeDesktop icon naming specification</li>
+                            <li>Consider the Waterleaf icon theme for consistency</li>
+                        </ul>
+
+                        <h2>Dependencies and Requirements</h2>
+                        
+                        <h3>System Requirements</h3>
+                        <ul>
+                            <li>Target Debian Bookworm (12) as the base system</li>
+                            <li>Ensure compatibility with Trinity Desktop Environment</li>
+                            <li>Test on both 32-bit and 64-bit architectures if applicable</li>
+                            <li>Consider ARM support for Raspberry Pi installations</li>
+                        </ul>
+
+                        <h3>Common Dependencies</h3>
+                        <p>Most Q4OS applications will depend on these core packages:</p>
+                        <ul>
+                            <li><code>libc6</code> - Standard C library</li>
+                            <li><code>libqt5core5a</code> - Qt5 core libraries (for Qt applications)</li>
+                            <li><code>libgtk-3-0</code> - GTK3 libraries (for GTK applications)</li>
+                            <li><code>libtqt3-mt</code> - Trinity Qt libraries (for Trinity-native apps)</li>
+                        </ul>
+
+                        <h2>Installation Scripts</h2>
+                        
+                        <h3>Post-installation Script (postinst)</h3>
+                        <pre><code>#!/bin/bash
+set -e
+
+# Update desktop database
+if command -v update-desktop-database &gt; /dev/null 2&gt;&amp;1; then
+    update-desktop-database /usr/share/applications
+fi
+
+# Update icon cache
+if command -v gtk-update-icon-cache &gt; /dev/null 2&gt;&amp;1; then
+    gtk-update-icon-cache /usr/share/icons/hicolor
+fi
+
+# Update MIME database
+if command -v update-mime-database &gt; /dev/null 2&gt;&amp;1; then
+    update-mime-database /usr/share/mime
+fi
+
+exit 0</code></pre>
+
+                        <h3>Pre-removal Script (prerm)</h3>
+                        <pre><code>#!/bin/bash
+set -e
+
+# Stop any running services
+if systemctl is-active --quiet your-application; then
+    systemctl stop your-application
+fi
+
+exit 0</code></pre>
+
+                        <h2>Testing and Quality Assurance</h2>
+                        
+                        <h3>Testing Checklist</h3>
+                        <ul>
+                            <li>Test installation and removal processes</li>
+                            <li>Verify menu integration in Trinity desktop</li>
+                            <li>Check icon display in various contexts</li>
+                            <li>Test application startup and basic functionality</li>
+                            <li>Verify file associations work correctly</li>
+                            <li>Test on clean Q4OS installation</li>
+                            <li>Check compatibility with different Q4OS versions</li>
+                        </ul>
+
+                        <h3>Performance Considerations</h3>
+                        <ul>
+                            <li>Optimize for older hardware that Q4OS often runs on</li>
+                            <li>Minimize memory usage and startup time</li>
+                            <li>Consider resource constraints on single-board computers</li>
+                            <li>Test performance on ARM devices if supporting them</li>
+                        </ul>
+
+                        <h2>Distribution and Maintenance</h2>
+                        
+                        <h3>Version Management</h3>
+                        <ul>
+                            <li>Use semantic versioning (MAJOR.MINOR.PATCH)</li>
+                            <li>Maintain changelog for each release</li>
+                            <li>Provide upgrade paths for existing installations</li>
+                            <li>Test upgrade procedures thoroughly</li>
+                        </ul>
+
+                        <h3>Support and Documentation</h3>
+                        <ul>
+                            <li>Provide clear installation instructions</li>
+                            <li>Include troubleshooting information</li>
+                            <li>Document any Q4OS-specific configuration</li>
+                            <li>Maintain compatibility notes for different Q4OS versions</li>
+                        </ul>
+
+                        <h2>Security Best Practices</h2>
+                        
+                        <h3>Package Signing</h3>
+                        <ul>
+                            <li>Sign your packages with GPG for verification</li>
+                            <li>Provide public key for package verification</li>
+                            <li>Use secure download channels (HTTPS)</li>
+                        </ul>
+
+                        <h3>Permissions and Security</h3>
+                        <ul>
+                            <li>Follow principle of least privilege</li>
+                            <li>Avoid requiring root permissions unnecessarily</li>
+                            <li>Store user data in appropriate directories</li>
+                            <li>Respect system security policies</li>
+                        </ul>
+
+                        <h2>Community and Resources</h2>
+                        
+                        <h3>Getting Help</h3>
+                        <ul>
+                            <li>Q4OS Community Forum for development questions</li>
+                            <li>Trinity Desktop documentation for TDE-specific features</li>
+                            <li>Debian packaging guidelines for technical details</li>
+                            <li>Q4OS development mailing list for announcements</li>
+                        </ul>
+
+                        <h3>Contributing Back</h3>
+                        <ul>
+                            <li>Consider contributing applications to Q4OS repositories</li>
+                            <li>Share packaging scripts and tools with community</li>
+                            <li>Report bugs and suggest improvements</li>
+                            <li>Help maintain compatibility with new Q4OS releases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn" value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">1 $</div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number" id="ownPrice" onkeyup="updateOwnPrice(this); price = parseInt(this.value)" />$
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    
+    <!-- Update copyright year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

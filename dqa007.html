@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Setup and Using Guide - Complete User Manual</title>
+    <meta name="description" content="Complete guide for setting up and using Q4OS Trinity desktop. Learn installation, configuration, desktop usage, and essential operations for new users.">
+    <meta name="keywords" content="Q4OS setup, Q4OS user guide, Trinity desktop tutorial, Q4OS installation, Q4OS configuration">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa007.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa007.html">
+    <meta property="og:title" content="Q4OS Setup and Using Guide">
+    <meta property="og:description" content="Complete guide for setting up and using Q4OS Trinity desktop.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa007.html">
+    <meta property="twitter:title" content="Q4OS Setup and Using Guide">
+    <meta property="twitter:description" content="Complete guide for setting up and using Q4OS Trinity desktop.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Q4OS Setup and Using Guide",
+        "description": "Complete guide for setting up and using Q4OS Trinity desktop",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Q4OS Setup and Using</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>Q4OS Setup and Using - User Manual</h1>
+                        <p class="lead">Complete guide for setting up and using Q4OS Trinity desktop environment.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section aria-labelledby="getting-started">
+                            <h2 id="getting-started">Getting Started</h2>
+                            <p>Q4OS is a user-friendly Linux distribution featuring the Trinity Desktop Environment, providing a familiar Windows-like experience with modern Linux benefits.</p>
+
+                            <h3>System Requirements</h3>
+                            <ul>
+                                <li>RAM: 1 GB minimum (2 GB recommended)</li>
+                                <li>Storage: 5 GB minimum (10 GB recommended)</li>
+                                <li>Processor: x86 or x64 compatible CPU</li>
+                                <li>Graphics: VGA compatible display</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="installation" class="mt-4">
+                            <h2 id="installation">Installation</h2>
+                            
+                            <h3>Live USB Creation</h3>
+                            <ol>
+                                <li>Download the Q4OS ISO from the <a href="downloads.html">Downloads page</a></li>
+                                <li>Use a tool like Rufus (Windows) or dd command (Linux) to create a bootable USB</li>
+                                <li>Boot from the USB drive to try Q4OS live or install</li>
+                            </ol>
+
+                            <h3>Installation Process</h3>
+                            <ol>
+                                <li>Boot from the Q4OS live media</li>
+                                <li>Click the "Install Q4OS" icon on the desktop</li>
+                                <li>Follow the installation wizard:
+                                    <ul>
+                                        <li>Select language and keyboard layout</li>
+                                        <li>Choose installation type (alongside Windows or replace existing OS)</li>
+                                        <li>Configure user account and password</li>
+                                        <li>Review settings and install</li>
+                                    </ul>
+                                </li>
+                                <li>Reboot when installation completes</li>
+                            </ol>
+                        </section>
+
+                        <section aria-labelledby="desktop-basics" class="mt-4">
+                            <h2 id="desktop-basics">Desktop Basics</h2>
+                            
+                            <h3>Trinity Desktop Environment</h3>
+                            <p>Q4OS uses Trinity Desktop, providing a classic desktop experience similar to Windows XP/7:</p>
+                            <ul>
+                                <li><strong>Start Menu:</strong> Click the bottom-left button to access applications and settings</li>
+                                <li><strong>Taskbar:</strong> Shows running applications and system tray</li>
+                                <li><strong>Desktop:</strong> Double-click icons to launch applications</li>
+                                <li><strong>File Manager:</strong> Konqueror provides file browsing and web capabilities</li>
+                            </ul>
+
+                            <h3>Essential Applications</h3>
+                            <ul>
+                                <li><strong>Web Browser:</strong> Firefox or Chromium</li>
+                                <li><strong>Office Suite:</strong> LibreOffice for documents, spreadsheets, presentations</li>
+                                <li><strong>Text Editor:</strong> Kate for code editing, KWrite for simple text</li>
+                                <li><strong>Media Player:</strong> VLC for video, Amarok for music</li>
+                                <li><strong>Terminal:</strong> Konsole for command-line access</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="customization" class="mt-4">
+                            <h2 id="customization">Customization</h2>
+                            
+                            <h3>Control Center</h3>
+                            <p>Access Trinity Control Center through Start Menu → Control Center to customize:</p>
+                            <ul>
+                                <li>Desktop appearance and themes</li>
+                                <li>Window behavior and effects</li>
+                                <li>Hardware and peripherals</li>
+                                <li>Network and internet settings</li>
+                                <li>User accounts and security</li>
+                            </ul>
+
+                            <h3>Desktop Themes</h3>
+                            <p>Q4OS includes several desktop themes:</p>
+                            <ul>
+                                <li><strong>Classic:</strong> Traditional Windows-like appearance</li>
+                                <li><strong>Modern:</strong> Contemporary flat design</li>
+                                <li><strong>Custom:</strong> Create your own theme combinations</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="software-management" class="mt-4">
+                            <h2 id="software-management">Software Management</h2>
+                            
+                            <h3>Installing Software</h3>
+                            <p>Q4OS provides multiple ways to install software:</p>
+                            <ul>
+                                <li><strong>Software Centre:</strong> Graphical application installer</li>
+                                <li><strong>Synaptic:</strong> Advanced package manager</li>
+                                <li><strong>APT:</strong> Command-line package management</li>
+                                <li><strong>Q4OS Installer:</strong> One-click installation for popular applications</li>
+                            </ul>
+
+                            <h3>Popular Applications</h3>
+                            <p>Common applications available for installation:</p>
+                            <ul>
+                                <li>GIMP for image editing</li>
+                                <li>Thunderbird for email</li>
+                                <li>Steam for gaming</li>
+                                <li>Development tools (Visual Studio Code, etc.)</li>
+                                <li>Multimedia codecs and plugins</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="maintenance" class="mt-4">
+                            <h2 id="maintenance">System Maintenance</h2>
+                            
+                            <h3>Updates</h3>
+                            <p>Keep your system updated:</p>
+                            <ul>
+                                <li>System updates appear in the system tray</li>
+                                <li>Use Update Manager for graphical updates</li>
+                                <li>Command line: <code>sudo apt update && sudo apt upgrade</code></li>
+                            </ul>
+
+                            <h3>Backup</h3>
+                            <p>Regular backups are important:</p>
+                            <ul>
+                                <li>User data: Back up your home directory</li>
+                                <li>System settings: Export Trinity configuration</li>
+                                <li>Application data: Save browser bookmarks, email, etc.</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="troubleshooting" class="mt-4">
+                            <h2 id="troubleshooting">Troubleshooting</h2>
+                            
+                            <h3>Common Issues</h3>
+                            <ul>
+                                <li><strong>Boot Issues:</strong> Check BIOS settings, verify boot media</li>
+                                <li><strong>Graphics Problems:</strong> Try different graphics drivers</li>
+                                <li><strong>Network Issues:</strong> Check network manager settings</li>
+                                <li><strong>Audio Problems:</strong> Verify audio device selection in system settings</li>
+                            </ul>
+
+                            <h3>Getting Help</h3>
+                            <ul>
+                                <li>Visit the <a href="/forum/" target="_blank" rel="noopener">Q4OS Community Forum</a></li>
+                                <li>Check the <a href="dqa011.html">Frequently Asked Questions</a></li>
+                                <li>Consult the <a href="documents.html">documentation library</a></li>
+                                <li>Contact support through the <a href="partner.html">Partner page</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
