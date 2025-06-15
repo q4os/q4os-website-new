@@ -1,39 +1,33 @@
 ﻿@charset "UTF-8";
 /* CSS Document */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --header-font: 'Nanum gothic', sans-serif;
-    --content-font: 'Open Sans', sans-serif;
-    --color: rgb(255,87,34);
-    --color-dark: rgb(204, 88, 49);
+    --color: #0D6EFD;
+    --color-dark: #0A58CA;
 }
 html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: var(--content-font);
 }
 h1, h2, h3, label {
-	font-family: var(--header-font);
-	color: rgba(48,63,159, 1);
+	color: var(--color);
 	text-transform: uppercase;
 }
 h3 {
-	color: black;
+	/* color: black; */ /* Overridden by rule above, or set to var(--color) if h3 was not in the selector above */
 	font-size: 20px;
 }
 input, textarea {
 	border:2px solid #f8f9fa!important;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(48,63,159, 1);
-    font-family: var(--header-font);
+    color: var(--color);
     font-weight: bold;
     text-transform: uppercase;
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-	color: rgba(48,63,159, 0.8)
+	color: var(--color-dark);
 }
 .navbar-light .navbar-toggler-icon {
 	background-image: url("../img/hamburger.svg");
@@ -55,30 +49,32 @@ input, textarea {
     }
 }
 .current {
-	color: rgba(255,87,34, 1)!important;
+	color: var(--color)!important;
 }
 .btn-primary {
-	background: rgba(255,87,34, 1);
-	border-color: #ff5722;
+	background-color: var(--color);
+	border-color: var(--color);
 }
 .btn-primary:hover, .btn-primary:focus {
-	background: rgba(234,74,31, 1)!important;
-	border-color: #ff5722;
+	background-color: var(--color-dark)!important;
+	border-color: var(--color-dark)!important;
 }
 .btn-outline-primary {
-    color: #ff5722;
-	border-color: #ff5722;
+    color: var(--color);
+	border-color: var(--color);
 }
 .btn-outline-primary:hover, .btn-outline-primary:focus {
-    background: rgba(234,74,31, 1)!important;
-	border-color: #ff5722;
+    background-color: var(--color)!important;
+    color: white!important;
+	border-color: var(--color)!important;
 }
 .hero {
-	background: url("../img/bg-hero-1.jpg");
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg-hero-1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: bottom left;
+	background-position: center center;
 }
+/*
 .hero .logo {
 	margin-top: 10vh;
 	text-align: center;
@@ -86,11 +82,14 @@ input, textarea {
 .hero .logo img {
 	max-width: 400px;
 }
+*/
+/*
 .text {
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 10vh;
 }
+*/
 .donate {
     border-top: 5px solid var(--color);
     border-radius: 0;
@@ -138,23 +137,25 @@ input, textarea {
 
     .paySystem div.selected {
         font-weight: bold;
-
         color: white;
     }
 
     .paySystem #opt1.selected {
-        background: linear-gradient(135deg, rgba(194,107,0,1) 9%, rgba(162,89,0,1) 55%, rgba(255,140,0,1) 84%);
+        background-color: var(--color);
+        color: white;
     }
     .paySystem #opt2.selected {
-        background: linear-gradient(135deg, #8a8a8a 9%, #d6d6d6 55%, #8a8a8a 84%);
+        background-color: #6c757d;
+        color: white;
     }
     .paySystem #opt3.selected {
-        background: linear-gradient(135deg, rgba(177,133,0,1) 9%, rgba(254,224,133,1) 55%, rgba(177,133,0,1) 84%);
+        background-color: #adb5bd;
+        color: white;
     }
     .paySystem #opt4.selected {
-        background: gray;
+        background-color: #6c757d;
+        color: white;
     }
-
 
 /*      .paySystem div.opt:after {
         height: 0;
@@ -199,7 +200,6 @@ input, textarea {
         border-radius: 0;
         background: var(--color);
         color: white;
-        font-family: var(--content-font);
         font-size: 20px;
         cursor: pointer;
         outline: none;

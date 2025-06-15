@@ -9,8 +9,7 @@
     <title>Q4OS - Desktop Operating System</title>
     <!-- Bootstrap -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/css.css">
     <meta property="og:image" content="og.jpg" />
     <script src="js/javascript.js"></script>
@@ -27,12 +26,12 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
 		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
 				style="width: 150px;"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
 			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
+			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
 					<a class="nav-link current" href="index.html">Home</a>
 				</li>
@@ -61,40 +60,32 @@
 	<div id="wrapper">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="hero col-12">
-					<div class="logo col-6 col-sm-3 mx-auto d-none d-lg-block"><img src="img/q4os-logo-vertical.svg"
-							alt="Logo" class="img-fluid"></div>
-					<div class="logo col-6 col-sm-3 mx-auto d-lg-none"><img src="img/q4os-logo-fullcolor.svg" alt="Logo"
-							class="img-fluid"></div>
-					<div class="text col-10 mx-auto">
-						<a href="#welcome">
-							<div class="btn btn-outline-primary mt-1">Learn More</div>
-						</a>
-						<a href="#systems">
-							<div class="btn btn-primary mt-1">Supported Systems</div>
-						</a>
-					</div>
-				</div>
+				<div class="hero col-12 text-center py-5"> <!-- Added text-center and padding -->
+            <div class="container">
+                <img src="img/q4os-logo-fullcolor.svg" alt="Q4OS Logo" class="img-fluid my-4" style="max-height: 100px;"> <!-- Adjusted max-height -->
+                <h1 class="display-4 fw-bold text-white">Q4OS: Fast, Powerful, Reliable</h1>
+                <p class="lead text-white-75 mb-4">A lean and fast desktop operating system based on Debian, designed for productivity on both modern and older hardware.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="downloads.html" class="btn btn-primary btn-lg px-4 me-sm-3">Get Q4OS</a> <!-- me-sm-3 for spacing on larger screens -->
+                    <a href="#welcome" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+                </div>
+            </div>
+        </div>
 			</div>
 		</div>
 		<div id="welcome" class="container">
 			<div class="row">
 				<div class="col-12 mx-auto text-center">
 					<h2 class="mt-5">Welcome to Q4OS</h2>
-					<p>Fast and powerful operating system based on the latest technologies while offering
-						highly productive desktop environment. We focus on security, reliability, long-term stability
-						and conservative integration of verified new features. System is distinguished by speed and very
-						low hardware requirements, runs great on brand new machines as well as legacy computers. It is
-						also very applicable for virtualization and cloud computing.
-
+					<p>Q4OS is a fast and powerful operating system built on the latest technologies, offering a highly productive desktop environment. Our focus is on security, reliability, long-term stability, and the conservative integration of verified new features. Q4OS stands out for its speed and very low hardware requirements, running smoothly on both brand-new machines and legacy computers. It is also well-suited for virtualization and cloud computing.
 					</p>
 
 
 
 				</div>
                 <div class="col-10 col-md-4 mx-auto bg-light p-4 mb-5 rounded text-center donate" id="donate">
-                    <h3>Download Q4OS</h3>
-                    <p>If you like Q4OS, please donate us.</p>
+                    <h3>Support Q4OS Development</h3>
+                    <p>If you find Q4OS valuable, please consider supporting its development with a donation.</p>
 
 
 
@@ -195,17 +186,13 @@
 				</div>
 				<div class="col-10 col-md-7 mx-auto">
 					<h3 class="mt-4">The right desktop for your business</h3>
-					<p>Get professional support for your business. The team behind Q4OS is ready to provide any kind of
-						system customization, including core level API programming as well as user interface
-						modifications. For any form of commercial support <a href="#contact">contact us</a>.</p>
+					<p>Q4OS offers professional support tailored for your business. Our team can provide comprehensive system customizations, from core-level API programming to user interface modifications. For all commercial support inquiries, please <a href="#contact">contact us</a>.</p>
 				</div>
 			</div>
 			<div class="row mt-5 mb-5">
 				<div class="col-10 col-md-7 mx-auto order-12 order-md-1 text-md-right">
 					<h3 class="mt-4">Help Wanted</h3>
-					<p>We are currently seeking business partners to accelerate development, in order to build the
-						perfect operating system for professional use. If you would like to participate, fund or make an
-						investment in Q4OS, please contact us at <a href="mailto:partner@q4os.org">partner@q4os.org</a>.
+					<p>We are seeking business partners to help accelerate Q4OS development and enhance its features for professional use. If your organization is interested in participating, funding, or investing in Q4OS, please contact us at <a href="mailto:partner@q4os.org">partner@q4os.org</a>.
 					</p>
 				</div>
 				<div class="col-10 col-md-5 mx-auto order-1 order-md-12">
@@ -233,10 +220,7 @@
 								<h4>Pine64</h4>
 							</div>
 						</div>
-						<p class="mt-3 mb-3">We believe in developing for past, preset and future. That's why we're
-							heavily invested in the Intel, AMD and ARM architectures. On top of that, the Long Term
-							Support release codenamed 'Centaurus' gives you five years of security patches and updates,
-							it will be supported until July 2024 at least.
+						<p class="mt-3 mb-3">Q4OS is developed for a wide range of hardware, from past to future generations. We are committed to supporting Intel, AMD, and ARM architectures. Our Long-Term Support (LTS) release, 'Centaurus,' provides five years of security patches and updates, supported at least until July 2024.
 						</p>
 						<a href="downloads.html">
 							<div class="btn btn-primary mb-5">Download</div>
@@ -312,7 +296,7 @@
 						<a href="https://github.com/q4os" target="_blank"><img src="img/github-logo.svg"
 								alt="GitHub" width="30"></a>
 					</div>
-					<div class="col-12 col-md-9 text-right">
+					<div class="col-12 col-md-9 text-end">
 						<p class="copyright text-black">&copy;
 							Q4OS. All Rights Reserved.<br><a href="https://trenta.media/?src=q4os"
 								style="font-size: 10px; color: #3F51B5; text-decoration: none;" target="_blank">a <img
@@ -325,11 +309,7 @@
 		</footer>
 	</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 
 </html>
