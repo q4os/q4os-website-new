@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://q4os.org/sitemap.xml
+
+# Disallow crawling of certain files
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /downloads.html
+Allow: /documents.html
+Allow: /partner.html
+Allow: /blog.html
+Allow: /donate.html
+
+# Crawl-delay for considerate crawling
+Crawl-delay: 1

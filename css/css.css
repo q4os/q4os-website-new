@@ -2,13 +2,11 @@
 /* CSS Document */
 
 :root {
-    --color: #0D6EFD;
-    --color-dark: #0A58CA;
+    --color: #FF6B35;
+    --color-dark: #E55A2B;
 }
 html {
     scroll-behavior: smooth;
-}
-body {
 }
 h1, h2, h3, label {
 	color: var(--color);
@@ -69,7 +67,7 @@ input, textarea {
 	border-color: var(--color)!important;
 }
 .hero {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg-hero-1.jpg");
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/bg-hero-1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -93,8 +91,8 @@ input, textarea {
 .donate {
     border-top: 5px solid var(--color);
     border-radius: 0;
-    width: 90vw;
-    max-width: none;
+    max-width: 500px;
+    width: 90%;
 }
 .donate h3, .donate p {
     text-align: center;
@@ -110,14 +108,15 @@ input, textarea {
 
 .paySystem {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
     .paySystem div.opt {
-        margin-right: 10px;
-        margin-left: 10px;
         height: 4em;
-        padding-right: 30px;
-        padding-left: 30px;
+        padding: 0 20px;
         border-radius: 10px;
         border: 2px solid black;
         cursor: pointer;
@@ -125,6 +124,7 @@ input, textarea {
         display: flex;
         align-items: center;
         justify-content: center;
+        min-width: 80px;
     }
 
     .paySystem div.opt:not(.selected):hover {
@@ -217,9 +217,8 @@ input, textarea {
 
     .paySystem .splitLine {
         border-left: 3px solid;
-        width: 10px;
-        margin-right: 10px;
-        margin-left: 10px;
+        height: 2em;
+        width: 3px;
     }
 
 .other label {
@@ -265,6 +264,31 @@ input, textarea {
 }
 */
 
+@media (max-width: 767px) {
+    .paySystem {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .paySystem div.opt {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .paySystem .splitLine {
+        width: 80%;
+        height: 3px;
+        border-left: none;
+        border-top: 3px solid;
+    }
+    
+    .paySystem button {
+        width: 100%;
+        max-width: 250px;
+        padding: 15px;
+    }
+}
+
 #wrapper {
     animation: margin-top-animation 1s;
     border-top: 0px solid rgba(0, 0, 0, 0);
@@ -275,5 +299,106 @@ input, textarea {
         border-top: 50px solid rgba(0, 0, 0, 0);
         opacity: 0;
     }
+}
+
+/* Accessibility improvements */
+.paySystem div.opt:focus {
+    outline: 3px solid var(--color);
+    outline-offset: 2px;
+}
+
+.paySystem div.opt[aria-checked="true"] {
+    font-weight: bold;
+    color: white;
+}
+
+/* Skip link styling */
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Ensure good contrast for form elements */
+input:focus, textarea:focus, button:focus, select:focus {
+    outline: 3px solid var(--color);
+    outline-offset: 2px;
+}
+
+/* Skip link focus styling */
+.visually-hidden-focusable:focus {
+    z-index: 9999;
+    color: white;
+    background-color: var(--color);
+    text-decoration: none;
+}
+
+/* Screen reader only content */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Improve button accessibility */
+.btn:focus {
+    outline: 3px solid var(--color);
+    outline-offset: 2px;
+}
+
+/* Navigation accessibility */
+.navbar-nav [aria-current="page"] {
+    font-weight: bold;
+}
+
+/* Link styling for better accessibility */
+a:focus {
+    outline: 2px solid var(--color);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/bg-hero-1.jpg");
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Ensure good text spacing for readability */
+p, li {
+    line-height: 1.6;
+}
+
+/* Improve button minimum touch targets */
+.btn, .paySystem div.opt {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve breadcrumb accessibility */
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #6c757d;
 }
 
