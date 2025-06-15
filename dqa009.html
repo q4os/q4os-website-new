@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Easy Way to Create Custom Application Installer for Q4OS - Developer Guide</title>
+    <meta name="description" content="Learn how to create custom application installers for Q4OS. Build one-click installers for software distribution and deployment using Q4OS installer framework.">
+    <meta name="keywords" content="Q4OS installer, custom installer, application deployment, Q4OS development, software packaging">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa009.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa009.html">
+    <meta property="og:title" content="Easy Way to Create Custom Application Installer for Q4OS">
+    <meta property="og:description" content="Learn how to create custom application installers for Q4OS using the installer framework.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa009.html">
+    <meta property="twitter:title" content="Easy Way to Create Custom Application Installer for Q4OS">
+    <meta property="twitter:description" content="Learn how to create custom application installers for Q4OS using the installer framework.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Easy Way to Create Custom Application Installer for Q4OS",
+        "description": "Learn how to create custom application installers for Q4OS using the installer framework",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Custom Application Installer</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>Easy Way to Create Custom Application Installer</h1>
+                        <p class="lead">Developer guide for creating one-click application installers for Q4OS using the installer framework.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section aria-labelledby="overview">
+                            <h2 id="overview">Overview</h2>
+                            <p>Q4OS provides a powerful installer framework that allows developers to create custom, one-click installers for their applications. This system simplifies software deployment and provides a consistent installation experience for users.</p>
+
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li>One-click installation for end users</li>
+                                <li>Dependency resolution and management</li>
+                                <li>Progress indication and user feedback</li>
+                                <li>Post-installation configuration</li>
+                                <li>Desktop integration and shortcuts</li>
+                                <li>Uninstallation support</li>
+                            </ul>
+
+                            <h3>Installation Types Supported</h3>
+                            <ul>
+                                <li><strong>Package-based:</strong> Install from APT repositories</li>
+                                <li><strong>Archive-based:</strong> Extract and install from tar.gz, zip files</li>
+                                <li><strong>Script-based:</strong> Custom installation scripts</li>
+                                <li><strong>AppImage:</strong> Portable application format</li>
+                                <li><strong>Snap/Flatpak:</strong> Universal package formats</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="getting-started" class="mt-4">
+                            <h2 id="getting-started">Getting Started</h2>
+                            
+                            <h3>Prerequisites</h3>
+                            <ul>
+                                <li>Q4OS system with development tools</li>
+                                <li>Basic knowledge of shell scripting</li>
+                                <li>Understanding of Linux package management</li>
+                                <li>Your application ready for distribution</li>
+                            </ul>
+
+                            <h3>Installing Development Tools</h3>
+                            <pre><code>sudo apt update
+sudo apt install build-essential
+sudo apt install q4os-installer-dev  # Q4OS installer development tools
+sudo apt install imagemagick          # For icon processing
+sudo apt install desktop-file-utils   # For .desktop file validation</code></pre>
+
+                            <h3>Q4OS Installer Framework Structure</h3>
+                            <p>The Q4OS installer framework uses a simple directory structure:</p>
+                            <pre><code>my-app-installer/
+├── installer.conf        # Main configuration file
+├── install.sh           # Installation script
+├── uninstall.sh         # Uninstallation script (optional)
+├── icon.png             # Application icon
+├── files/               # Application files (if needed)
+└── resources/           # Additional resources</code></pre>
+                        </section>
+
+                        <section aria-labelledby="configuration-file" class="mt-4">
+                            <h2 id="configuration-file">Configuration File</h2>
+                            
+                            <h3>Basic installer.conf Structure</h3>
+                            <p>Create the main configuration file <code>installer.conf</code>:</p>
+                            <pre><code>[Application]
+Name=My Application
+Version=1.0.0
+Description=A great application for Q4OS users
+Category=Office
+Author=Your Name
+Email=your.email@example.com
+Website=https://yourapp.com
+License=GPL-3.0
+
+[Installation]
+Type=package
+Dependencies=libqt5core5a,libqt5gui5,libqt5widgets5
+Packages=my-app
+PostInstall=configure_app
+CreateShortcut=true
+RequiresReboot=false
+
+[Interface]
+Icon=icon.png
+ShowProgress=true
+AllowCancel=true
+ConfirmInstall=true
+
+[Uninstall]
+Supported=true
+RemoveConfig=ask
+RemoveLogs=true</code></pre>
+
+                            <h3>Configuration Options Explained</h3>
+                            
+                            <h4>[Application] Section</h4>
+                            <ul>
+                                <li><strong>Name:</strong> Application display name</li>
+                                <li><strong>Version:</strong> Application version</li>
+                                <li><strong>Description:</strong> Brief description</li>
+                                <li><strong>Category:</strong> Application category (Office, Graphics, Games, etc.)</li>
+                                <li><strong>Author:</strong> Developer name</li>
+                                <li><strong>Email:</strong> Contact email</li>
+                                <li><strong>Website:</strong> Application website</li>
+                                <li><strong>License:</strong> Software license</li>
+                            </ul>
+
+                            <h4>[Installation] Section</h4>
+                            <ul>
+                                <li><strong>Type:</strong> package, archive, script, appimage, snap, flatpak</li>
+                                <li><strong>Dependencies:</strong> Required system packages</li>
+                                <li><strong>Packages:</strong> APT packages to install</li>
+                                <li><strong>PostInstall:</strong> Function to call after installation</li>
+                                <li><strong>CreateShortcut:</strong> Create desktop shortcut</li>
+                                <li><strong>RequiresReboot:</strong> Whether system reboot is needed</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="installation-script" class="mt-4">
+                            <h2 id="installation-script">Installation Script</h2>
+                            
+                            <h3>Basic install.sh Template</h3>
+                            <pre><code>#!/bin/bash
+# Q4OS Application Installer Script
+# Application: My Application
+# Version: 1.0.0
+
+# Source Q4OS installer functions
+source /usr/lib/q4os-installer/functions.sh
+
+# Initialize installer
+installer_init "My Application" "1.0.0"
+
+# Pre-installation checks
+pre_install_check() {
+    log_info "Performing pre-installation checks..."
+    
+    # Check available disk space
+    if ! check_disk_space "/usr" 100; then
+        installer_error "Insufficient disk space. Need at least 100MB."
+        return 1
+    fi
+    
+    # Check internet connectivity
+    if ! check_internet; then
+        installer_error "Internet connection required for installation."
+        return 1
+    fi
+    
+    return 0
+}
+
+# Main installation function
+install_application() {
+    log_info "Starting installation..."
+    
+    # Update package cache
+    update_package_cache
+    
+    # Install dependencies
+    log_info "Installing dependencies..."
+    install_packages "libqt5core5a libqt5gui5 libqt5widgets5"
+    
+    # Install main application
+    log_info "Installing My Application..."
+    install_packages "my-app"
+    
+    # Post-installation configuration
+    configure_app
+    
+    # Create desktop shortcut
+    create_desktop_shortcut
+    
+    log_info "Installation completed successfully!"
+    return 0
+}
+
+# Post-installation configuration
+configure_app() {
+    log_info "Configuring application..."
+    
+    # Create application directory
+    mkdir -p "$HOME/.my-app"
+    
+    # Copy default configuration
+    if [ -f "/etc/my-app/default.conf" ]; then
+        cp "/etc/my-app/default.conf" "$HOME/.my-app/config.conf"
+    fi
+    
+    # Set permissions
+    chmod 644 "$HOME/.my-app/config.conf"
+    
+    return 0
+}
+
+# Create desktop shortcut
+create_desktop_shortcut() {
+    log_info "Creating desktop shortcut..."
+    
+    cat > "$HOME/Desktop/My Application.desktop" << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=My Application
+Comment=A great application for Q4OS users
+Exec=/usr/bin/my-app
+Icon=/usr/share/pixmaps/my-app.png
+Terminal=false
+Categories=Office;
+StartupNotify=true
+EOF
+    
+    chmod +x "$HOME/Desktop/My Application.desktop"
+    return 0
+}
+
+# Run pre-installation checks
+if ! pre_install_check; then
+    installer_exit 1
+fi
+
+# Run installation
+if install_application; then
+    installer_success "My Application installed successfully!"
+else
+    installer_error "Installation failed!"
+    installer_exit 1
+fi
+
+installer_exit 0</code></pre>
+
+                            <h3>Available Installer Functions</h3>
+                            <p>The Q4OS installer framework provides these utility functions:</p>
+                            
+                            <h4>Logging Functions</h4>
+                            <ul>
+                                <li><code>log_info "message"</code> - Info message</li>
+                                <li><code>log_warning "message"</code> - Warning message</li>
+                                <li><code>log_error "message"</code> - Error message</li>
+                                <li><code>log_debug "message"</code> - Debug message</li>
+                            </ul>
+
+                            <h4>Package Management</h4>
+                            <ul>
+                                <li><code>update_package_cache</code> - Update APT cache</li>
+                                <li><code>install_packages "pkg1 pkg2"</code> - Install packages</li>
+                                <li><code>remove_packages "pkg1 pkg2"</code> - Remove packages</li>
+                                <li><code>check_package_installed "package"</code> - Check if installed</li>
+                            </ul>
+
+                            <h4>System Checks</h4>
+                            <ul>
+                                <li><code>check_disk_space "path" "size_mb"</code> - Check disk space</li>
+                                <li><code>check_internet</code> - Check internet connectivity</li>
+                                <li><code>check_sudo</code> - Check sudo privileges</li>
+                                <li><code>check_architecture</code> - Get system architecture</li>
+                            </ul>
+
+                            <h4>User Interface</h4>
+                            <ul>
+                                <li><code>installer_progress "percent"</code> - Update progress bar</li>
+                                <li><code>installer_message "text"</code> - Show message dialog</li>
+                                <li><code>installer_confirm "question"</code> - Ask yes/no question</li>
+                                <li><code>installer_input "prompt"</code> - Get user input</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="installation-types" class="mt-4">
+                            <h2 id="installation-types">Installation Types</h2>
+                            
+                            <h3>Package-based Installation</h3>
+                            <p>For applications available in APT repositories:</p>
+                            <pre><code>[Installation]
+Type=package
+Packages=firefox thunderbird
+Dependencies=ca-certificates
+Repository=universe  # Optional: specify repository</code></pre>
+
+                            <h3>Archive-based Installation</h3>
+                            <p>For applications distributed as compressed archives:</p>
+                            <pre><code>[Installation]
+Type=archive
+ArchiveURL=https://example.com/myapp-1.0.tar.gz
+ArchiveHash=sha256:abcdef123456...
+InstallPath=/opt/myapp
+CreateSymlink=/usr/local/bin/myapp</code></pre>
+
+                            <h3>Script-based Installation</h3>
+                            <p>For custom installation procedures:</p>
+                            <pre><code>[Installation]
+Type=script
+ScriptURL=https://example.com/install.sh
+ScriptHash=sha256:123456abcdef...
+RunAsRoot=true</code></pre>
+
+                            <h3>AppImage Installation</h3>
+                            <p>For portable AppImage applications:</p>
+                            <pre><code>[Installation]
+Type=appimage
+AppImageURL=https://example.com/MyApp-x86_64.AppImage
+InstallPath=/opt/appimages
+CreateDesktopFile=true</code></pre>
+
+                            <h3>Snap Package Installation</h3>
+                            <pre><code>[Installation]
+Type=snap
+SnapName=my-app
+Channel=stable
+Classic=false</code></pre>
+
+                            <h3>Flatpak Installation</h3>
+                            <pre><code>[Installation]
+Type=flatpak
+FlatpakID=org.example.MyApp
+Repository=flathub
+Branch=stable</code></pre>
+                        </section>
+
+                        <section aria-labelledby="uninstaller" class="mt-4">
+                            <h2 id="uninstaller">Creating Uninstaller</h2>
+                            
+                            <h3>Basic uninstall.sh Template</h3>
+                            <pre><code>#!/bin/bash
+# Q4OS Application Uninstaller Script
+# Application: My Application
+
+source /usr/lib/q4os-installer/functions.sh
+
+# Initialize uninstaller
+uninstaller_init "My Application"
+
+# Uninstall function
+uninstall_application() {
+    log_info "Starting uninstallation..."
+    
+    # Remove desktop shortcut
+    if [ -f "$HOME/Desktop/My Application.desktop" ]; then
+        rm -f "$HOME/Desktop/My Application.desktop"
+        log_info "Desktop shortcut removed"
+    fi
+    
+    # Ask about configuration removal
+    if installer_confirm "Remove application configuration files?"; then
+        rm -rf "$HOME/.my-app"
+        log_info "Configuration files removed"
+    fi
+    
+    # Remove application packages
+    log_info "Removing application packages..."
+    remove_packages "my-app"
+    
+    # Clean up orphaned dependencies
+    if installer_confirm "Remove unused dependencies?"; then
+        cleanup_packages
+        log_info "Unused dependencies removed"
+    fi
+    
+    return 0
+}
+
+# Run uninstallation
+if uninstall_application; then
+    installer_success "My Application uninstalled successfully!"
+else
+    installer_error "Uninstallation failed!"
+    uninstaller_exit 1
+fi
+
+uninstaller_exit 0</code></pre>
+                        </section>
+
+                        <section aria-labelledby="testing-debugging" class="mt-4">
+                            <h2 id="testing-debugging">Testing and Debugging</h2>
+                            
+                            <h3>Testing Your Installer</h3>
+                            <p>Test your installer thoroughly before distribution:</p>
+                            <pre><code># Test installer syntax
+bash -n install.sh
+
+# Run installer in test mode
+./install.sh --test
+
+# Run installer with debug output
+./install.sh --debug
+
+# Test on clean system
+# Use virtual machine or container for testing</code></pre>
+
+                            <h3>Debug Mode</h3>
+                            <p>Enable debug logging in your installer:</p>
+                            <pre><code># Add to beginning of install.sh
+set -x  # Enable debug mode
+export Q4OS_INSTALLER_DEBUG=1
+
+# Use debug logging
+log_debug "Debug information here"</code></pre>
+
+                            <h3>Common Issues and Solutions</h3>
+                            <ul>
+                                <li><strong>Permission errors:</strong> Check file permissions and sudo requirements</li>
+                                <li><strong>Missing dependencies:</strong> Verify all dependencies are listed</li>
+                                <li><strong>Network errors:</strong> Implement retry logic for downloads</li>
+                                <li><strong>Path issues:</strong> Use absolute paths when possible</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="advanced-features" class="mt-4">
+                            <h2 id="advanced-features">Advanced Features</h2>
+                            
+                            <h3>Multi-architecture Support</h3>
+                            <pre><code># Detect architecture and install appropriate version
+ARCH=$(check_architecture)
+case $ARCH in
+    "amd64")
+        PACKAGE_URL="https://example.com/myapp-amd64.deb"
+        ;;
+    "arm64")
+        PACKAGE_URL="https://example.com/myapp-arm64.deb"
+        ;;
+    "armhf")
+        PACKAGE_URL="https://example.com/myapp-armhf.deb"
+        ;;
+    *)
+        installer_error "Unsupported architecture: $ARCH"
+        installer_exit 1
+        ;;
+esac</code></pre>
+
+                            <h3>Version Checking</h3>
+                            <pre><code># Check if newer version is available
+check_version() {
+    local current_version=$(get_installed_version "my-app")
+    local latest_version=$(get_latest_version "my-app")
+    
+    if version_compare "$current_version" "$latest_version"; then
+        installer_message "Newer version available: $latest_version"
+        if installer_confirm "Update to latest version?"; then
+            return 0
+        else
+            return 1
+        fi
+    fi
+    return 1
+}</code></pre>
+
+                            <h3>Configuration Templates</h3>
+                            <pre><code># Use templates for configuration files
+create_config() {
+    local username=$(whoami)
+    local homedir=$HOME
+    
+    # Process template with variable substitution
+    sed -e "s/{{USERNAME}}/$username/g" \
+        -e "s/{{HOMEDIR}}/$homedir/g" \
+        /usr/share/my-app/config.template > "$HOME/.my-app/config.conf"
+}</code></pre>
+
+                            <h3>Service Installation</h3>
+                            <pre><code># Install and enable systemd service
+install_service() {
+    log_info "Installing system service..."
+    
+    # Copy service file
+    sudo cp files/my-app.service /etc/systemd/system/
+    
+    # Reload systemd and enable service
+    sudo systemctl daemon-reload
+    sudo systemctl enable my-app.service
+    
+    if installer_confirm "Start service now?"; then
+        sudo systemctl start my-app.service
+    fi
+}</code></pre>
+                        </section>
+
+                        <section aria-labelledby="distribution" class="mt-4">
+                            <h2 id="distribution">Packaging and Distribution</h2>
+                            
+                            <h3>Creating Installer Package</h3>
+                            <p>Package your installer for distribution:</p>
+                            <pre><code># Create installer archive
+tar -czf my-app-installer-1.0.tar.gz my-app-installer/
+
+# Create self-extracting installer
+cat > my-app-installer.run << 'EOF'
+#!/bin/bash
+ARCHIVE=$(awk '/^__ARCHIVE_BELOW__/ {print NR + 1; exit 0; }' $0)
+tail -n+$ARCHIVE $0 | tar xzv
+cd my-app-installer && ./install.sh
+exit 0
+__ARCHIVE_BELOW__
+EOF
+cat my-app-installer-1.0.tar.gz >> my-app-installer.run
+chmod +x my-app-installer.run</code></pre>
+
+                            <h3>Installer Verification</h3>
+                            <p>Add signature verification for security:</p>
+                            <pre><code># Sign installer package
+gpg --armor --detach-sig my-app-installer.run
+
+# Verify signature in installer
+verify_signature() {
+    if ! gpg --verify my-app-installer.run.asc my-app-installer.run; then
+        installer_error "Installer signature verification failed!"
+        return 1
+    fi
+    return 0
+}</code></pre>
+
+                            <h3>Online Distribution</h3>
+                            <p>Host your installer online:</p>
+                            <ul>
+                                <li>Upload to your website or GitHub releases</li>
+                                <li>Provide download links and checksums</li>
+                                <li>Create installation instructions</li>
+                                <li>Submit to Q4OS software directory (if applicable)</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="best-practices" class="mt-4">
+                            <h2 id="best-practices">Best Practices</h2>
+                            
+                            <h3>Security</h3>
+                            <ul>
+                                <li>Validate all user inputs</li>
+                                <li>Use HTTPS for downloads</li>
+                                <li>Verify checksums and signatures</li>
+                                <li>Run with minimal required privileges</li>
+                                <li>Sanitize file paths and names</li>
+                            </ul>
+
+                            <h3>User Experience</h3>
+                            <ul>
+                                <li>Provide clear progress indication</li>
+                                <li>Show meaningful error messages</li>
+                                <li>Allow installation cancellation</li>
+                                <li>Include uninstallation support</li>
+                                <li>Test on various system configurations</li>
+                            </ul>
+
+                            <h3>Maintenance</h3>
+                            <ul>
+                                <li>Keep installers updated with application versions</li>
+                                <li>Monitor for compatibility issues</li>
+                                <li>Provide support documentation</li>
+                                <li>Use version control for installer scripts</li>
+                                <li>Collect user feedback and improve</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="examples" class="mt-4">
+                            <h2 id="examples">Complete Examples</h2>
+                            
+                            <h3>Simple Package Installer</h3>
+                            <p>Example for installing a simple APT package:</p>
+                            <a href="#" class="btn btn-primary" onclick="downloadExample('simple-package')">Download Simple Package Example</a>
+
+                            <h3>Archive-based Application</h3>
+                            <p>Example for installing from a tar.gz archive:</p>
+                            <a href="#" class="btn btn-primary" onclick="downloadExample('archive-based')">Download Archive Example</a>
+
+                            <h3>Complex Application with Services</h3>
+                            <p>Example for installing application with system services:</p>
+                            <a href="#" class="btn btn-primary" onclick="downloadExample('complex-service')">Download Service Example</a>
+
+                            <script>
+                                function downloadExample(type) {
+                                    alert('Example downloaders would be implemented based on the specific examples needed. This is a demonstration.');
+                                }
+                            </script>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

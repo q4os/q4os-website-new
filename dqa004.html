@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Remote Desktop Server Setup - Administrator Guide</title>
+    <meta name="description" content="Complete guide for setting up a Q4OS remote desktop server. Configure VNC, RDP, and SSH access for remote administration and user access.">
+    <meta name="keywords" content="Q4OS remote desktop, VNC server setup, RDP configuration, SSH access, remote administration, Q4OS server">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa004.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa004.html">
+    <meta property="og:title" content="Q4OS Remote Desktop Server Setup">
+    <meta property="og:description" content="Complete guide for setting up a Q4OS remote desktop server.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa004.html">
+    <meta property="twitter:title" content="Q4OS Remote Desktop Server Setup">
+    <meta property="twitter:description" content="Complete guide for setting up a Q4OS remote desktop server.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Q4OS Remote Desktop Server Setup",
+        "description": "Complete guide for setting up a Q4OS remote desktop server",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Remote Desktop Server</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>Set up a Q4OS Remote Desktop Server</h1>
+                        <p class="lead">Administrator guide for configuring remote desktop access to Q4OS systems.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section aria-labelledby="overview">
+                            <h2 id="overview">Overview</h2>
+                            <p>This guide covers setting up remote desktop access to Q4OS systems using various protocols including VNC, RDP, and SSH. Remote desktop access allows administrators and users to connect to Q4OS machines from anywhere on the network.</p>
+
+                            <h3>Supported Remote Access Methods</h3>
+                            <ul>
+                                <li><strong>VNC (Virtual Network Computing):</strong> Cross-platform desktop sharing</li>
+                                <li><strong>RDP (Remote Desktop Protocol):</strong> Microsoft's remote desktop protocol</li>
+                                <li><strong>SSH (Secure Shell):</strong> Command-line access with X11 forwarding</li>
+                                <li><strong>NoMachine NX:</strong> High-performance remote desktop</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="prerequisites" class="mt-4">
+                            <h2 id="prerequisites">Prerequisites</h2>
+                            <ul>
+                                <li>Q4OS system with administrative access</li>
+                                <li>Network connectivity between client and server</li>
+                                <li>Firewall configuration access</li>
+                                <li>Understanding of basic networking concepts</li>
+                            </ul>
+
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Security Warning:</strong> Remote desktop access can pose security risks. Always use strong passwords, enable encryption, and consider using VPN for connections over untrusted networks.
+                            </div>
+                        </section>
+
+                        <section aria-labelledby="vnc-setup" class="mt-4">
+                            <h2 id="vnc-setup">VNC Server Setup</h2>
+                            
+                            <h3>Installing VNC Server</h3>
+                            <p>Install TightVNC server package:</p>
+                            <pre><code>sudo apt update
+sudo apt install tightvncserver</code></pre>
+
+                            <h3>Initial VNC Configuration</h3>
+                            <ol>
+                                <li>Start VNC server for the first time to create configuration files:
+                                    <pre><code>vncserver :1</code></pre>
+                                </li>
+                                <li>Set a VNC password when prompted (6-8 characters)</li>
+                                <li>Choose whether to set a view-only password</li>
+                                <li>Stop the VNC server:
+                                    <pre><code>vncserver -kill :1</code></pre>
+                                </li>
+                            </ol>
+
+                            <h3>Configuring VNC Startup Script</h3>
+                            <p>Edit the VNC startup script to use Trinity desktop:</p>
+                            <pre><code>nano ~/.vnc/xstartup</code></pre>
+                            
+                            <p>Replace the contents with:</p>
+                            <pre><code>#!/bin/bash
+xrdb $HOME/.Xresources
+starttrinity &</code></pre>
+
+                            <p>Make the script executable:</p>
+                            <pre><code>chmod +x ~/.vnc/xstartup</code></pre>
+
+                            <h3>Starting VNC Server</h3>
+                            <p>Start VNC server with specific resolution:</p>
+                            <pre><code>vncserver :1 -geometry 1024x768 -depth 24</code></pre>
+
+                            <h3>Creating VNC Service</h3>
+                            <p>Create a systemd service for automatic startup:</p>
+                            <pre><code>sudo nano /etc/systemd/system/vncserver@.service</code></pre>
+
+                            <p>Add the following content:</p>
+                            <pre><code>[Unit]
+Description=Start TightVNC server at startup
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=your-username
+PAMName=login
+PIDFile=/home/your-username/.vnc/%H:%i.pid
+ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1024x768 :%i
+ExecStop=/usr/bin/vncserver -kill :%i
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+
+                            <p>Enable and start the service:</p>
+                            <pre><code>sudo systemctl daemon-reload
+sudo systemctl enable vncserver@1.service
+sudo systemctl start vncserver@1.service</code></pre>
+                        </section>
+
+                        <section aria-labelledby="rdp-setup" class="mt-4">
+                            <h2 id="rdp-setup">RDP Server Setup</h2>
+                            
+                            <h3>Installing XRDP</h3>
+                            <p>Install XRDP for RDP protocol support:</p>
+                            <pre><code>sudo apt update
+sudo apt install xrdp</code></pre>
+
+                            <h3>Configuring XRDP</h3>
+                            <p>Configure XRDP to use Trinity desktop:</p>
+                            <pre><code>echo "starttrinity" > ~/.xsession</code></pre>
+
+                            <p>Start and enable XRDP service:</p>
+                            <pre><code>sudo systemctl start xrdp
+sudo systemctl enable xrdp</code></pre>
+
+                            <h3>XRDP Security Configuration</h3>
+                            <p>Configure SSL certificate for encryption:</p>
+                            <pre><code>sudo openssl req -x509 -newkey rsa:2048 -nodes -keyout /etc/xrdp/key.pem -out /etc/xrdp/cert.pem -days 365</code></pre>
+
+                            <p>Edit XRDP configuration:</p>
+                            <pre><code>sudo nano /etc/xrdp/xrdp.ini</code></pre>
+
+                            <p>Update the SSL settings:</p>
+                            <pre><code>security_layer=tls
+certificate=/etc/xrdp/cert.pem
+key_file=/etc/xrdp/key.pem</code></pre>
+
+                            <p>Restart XRDP service:</p>
+                            <pre><code>sudo systemctl restart xrdp</code></pre>
+                        </section>
+
+                        <section aria-labelledby="ssh-setup" class="mt-4">
+                            <h2 id="ssh-setup">SSH Server Setup</h2>
+                            
+                            <h3>Installing SSH Server</h3>
+                            <p>Install OpenSSH server:</p>
+                            <pre><code>sudo apt update
+sudo apt install openssh-server</code></pre>
+
+                            <h3>SSH Configuration</h3>
+                            <p>Edit SSH configuration for security:</p>
+                            <pre><code>sudo nano /etc/ssh/sshd_config</code></pre>
+
+                            <p>Recommended security settings:</p>
+                            <pre><code>Port 22
+Protocol 2
+PermitRootLogin no
+PasswordAuthentication yes
+PubkeyAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10</code></pre>
+
+                            <p>Restart SSH service:</p>
+                            <pre><code>sudo systemctl restart ssh</code></pre>
+
+                            <h3>SSH Key Authentication (Recommended)</h3>
+                            <p>Generate SSH key pair on client:</p>
+                            <pre><code>ssh-keygen -t rsa -b 4096</code></pre>
+
+                            <p>Copy public key to server:</p>
+                            <pre><code>ssh-copy-id username@server-ip</code></pre>
+
+                            <h3>X11 Forwarding for GUI Applications</h3>
+                            <p>Connect with X11 forwarding enabled:</p>
+                            <pre><code>ssh -X username@server-ip</code></pre>
+
+                            <p>Launch GUI applications remotely:</p>
+                            <pre><code>firefox &
+kate &</code></pre>
+                        </section>
+
+                        <section aria-labelledby="nomachine-setup" class="mt-4">
+                            <h2 id="nomachine-setup">NoMachine NX Setup</h2>
+                            
+                            <h3>Installing NoMachine</h3>
+                            <p>Download NoMachine from the official website:</p>
+                            <pre><code>wget https://download.nomachine.com/download/7.10/Linux/nomachine_7.10.1_1_amd64.deb
+sudo dpkg -i nomachine_7.10.1_1_amd64.deb</code></pre>
+
+                            <h3>NoMachine Configuration</h3>
+                            <p>NoMachine works out of the box with minimal configuration. The service starts automatically after installation.</p>
+
+                            <p>Check service status:</p>
+                            <pre><code>sudo systemctl status nxserver</code></pre>
+
+                            <h3>NoMachine Client Connection</h3>
+                            <p>Download NoMachine client on remote computer and connect using:</p>
+                            <ul>
+                                <li>Server address: Q4OS machine IP</li>
+                                <li>Port: 4000 (default)</li>
+                                <li>Authentication: System username/password</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="firewall-configuration" class="mt-4">
+                            <h2 id="firewall-configuration">Firewall Configuration</h2>
+                            
+                            <h3>UFW Firewall Rules</h3>
+                            <p>Configure UFW firewall to allow remote desktop connections:</p>
+
+                            <p>Enable UFW:</p>
+                            <pre><code>sudo ufw enable</code></pre>
+
+                            <p>Allow VNC connections:</p>
+                            <pre><code>sudo ufw allow 5901/tcp  # VNC display :1
+sudo ufw allow 5902/tcp  # VNC display :2</code></pre>
+
+                            <p>Allow RDP connections:</p>
+                            <pre><code>sudo ufw allow 3389/tcp</code></pre>
+
+                            <p>Allow SSH connections:</p>
+                            <pre><code>sudo ufw allow 22/tcp</code></pre>
+
+                            <p>Allow NoMachine connections:</p>
+                            <pre><code>sudo ufw allow 4000/tcp</code></pre>
+
+                            <h3>Network-Specific Rules</h3>
+                            <p>Restrict access to specific networks for security:</p>
+                            <pre><code>sudo ufw allow from 192.168.1.0/24 to any port 5901
+sudo ufw allow from 192.168.1.0/24 to any port 3389</code></pre>
+                        </section>
+
+                        <section aria-labelledby="client-connections" class="mt-4">
+                            <h2 id="client-connections">Client Connections</h2>
+                            
+                            <h3>VNC Clients</h3>
+                            <ul>
+                                <li><strong>TightVNC Viewer:</strong> Free cross-platform VNC client</li>
+                                <li><strong>RealVNC Viewer:</strong> Professional VNC client</li>
+                                <li><strong>Remmina:</strong> Linux remote desktop client</li>
+                                <li><strong>Built-in clients:</strong> Many operating systems include VNC viewers</li>
+                            </ul>
+
+                            <p>VNC connection format:</p>
+                            <pre><code>server-ip:5901  # For display :1
+server-ip:5902  # For display :2</code></pre>
+
+                            <h3>RDP Clients</h3>
+                            <ul>
+                                <li><strong>Windows:</strong> Built-in Remote Desktop Connection</li>
+                                <li><strong>Linux:</strong> Remmina, Vinagre, FreeRDP</li>
+                                <li><strong>macOS:</strong> Microsoft Remote Desktop</li>
+                                <li><strong>Mobile:</strong> RD Client apps</li>
+                            </ul>
+
+                            <p>RDP connection settings:</p>
+                            <ul>
+                                <li>Computer: server-ip:3389</li>
+                                <li>Username: Q4OS username</li>
+                                <li>Password: Q4OS password</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="security-considerations" class="mt-4">
+                            <h2 id="security-considerations">Security Considerations</h2>
+                            
+                            <h3>Authentication</h3>
+                            <ul>
+                                <li>Use strong passwords for all accounts</li>
+                                <li>Enable SSH key authentication when possible</li>
+                                <li>Consider two-factor authentication</li>
+                                <li>Disable unused user accounts</li>
+                            </ul>
+
+                            <h3>Network Security</h3>
+                            <ul>
+                                <li>Use VPN for connections over internet</li>
+                                <li>Restrict access to specific IP ranges</li>
+                                <li>Change default ports when possible</li>
+                                <li>Enable logging and monitor access</li>
+                            </ul>
+
+                            <h3>Encryption</h3>
+                            <ul>
+                                <li>Enable TLS/SSL encryption for RDP</li>
+                                <li>Use SSH tunneling for VNC connections</li>
+                                <li>Consider VNC over SSH for added security</li>
+                            </ul>
+
+                            <h3>VNC over SSH Tunnel</h3>
+                            <p>Create secure VNC connection through SSH tunnel:</p>
+                            <pre><code>ssh -L 5901:localhost:5901 username@server-ip</code></pre>
+                            <p>Then connect VNC client to localhost:5901</p>
+                        </section>
+
+                        <section aria-labelledby="troubleshooting" class="mt-4">
+                            <h2 id="troubleshooting">Troubleshooting</h2>
+                            
+                            <h3>Common VNC Issues</h3>
+                            <ul>
+                                <li><strong>Gray screen:</strong> Check xstartup script configuration</li>
+                                <li><strong>Connection refused:</strong> Verify VNC server is running and firewall allows connections</li>
+                                <li><strong>Authentication failure:</strong> Reset VNC password with <code>vncpasswd</code></li>
+                            </ul>
+
+                            <h3>Common RDP Issues</h3>
+                            <ul>
+                                <li><strong>Black screen:</strong> Check .xsession file and Trinity desktop installation</li>
+                                <li><strong>Certificate errors:</strong> Verify SSL certificate configuration</li>
+                                <li><strong>Connection drops:</strong> Check network stability and XRDP logs</li>
+                            </ul>
+
+                            <h3>Log Files</h3>
+                            <p>Check these log files for troubleshooting:</p>
+                            <ul>
+                                <li>VNC: <code>~/.vnc/*.log</code></li>
+                                <li>XRDP: <code>/var/log/xrdp.log</code></li>
+                                <li>SSH: <code>/var/log/auth.log</code></li>
+                                <li>System: <code>/var/log/syslog</code></li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="performance-optimization" class="mt-4">
+                            <h2 id="performance-optimization">Performance Optimization</h2>
+                            
+                            <h3>VNC Performance</h3>
+                            <ul>
+                                <li>Use lower color depth (16-bit instead of 24-bit)</li>
+                                <li>Reduce screen resolution for slower connections</li>
+                                <li>Enable compression in VNC client</li>
+                                <li>Disable desktop effects and animations</li>
+                            </ul>
+
+                            <h3>RDP Performance</h3>
+                            <ul>
+                                <li>Adjust connection speed settings in RDP client</li>
+                                <li>Disable desktop wallpaper and animations</li>
+                                <li>Use lower color quality for slow connections</li>
+                                <li>Enable bitmap caching</li>
+                            </ul>
+
+                            <h3>Network Optimization</h3>
+                            <ul>
+                                <li>Use wired connection when possible</li>
+                                <li>Ensure adequate bandwidth</li>
+                                <li>Configure QoS for remote desktop traffic</li>
+                                <li>Monitor network latency</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

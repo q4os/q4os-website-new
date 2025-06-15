@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Clean Install on ARM Device - Administrator Guide</title>
+    <meta name="description" content="Complete guide for performing a clean installation of Q4OS Desktop on ARM devices. Includes setup for Raspberry Pi, Pine64, and other ARM-based systems.">
+    <meta name="keywords" content="Q4OS ARM installation, Raspberry Pi Q4OS, ARM device setup, Q4OS clean install, embedded Q4OS">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa012.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa012.html">
+    <meta property="og:title" content="Q4OS Clean Install on ARM Device">
+    <meta property="og:description" content="Complete guide for performing a clean installation of Q4OS Desktop on ARM devices.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa012.html">
+    <meta property="twitter:title" content="Q4OS Clean Install on ARM Device">
+    <meta property="twitter:description" content="Complete guide for performing a clean installation of Q4OS Desktop on ARM devices.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Q4OS Clean Install on ARM Device",
+        "description": "Complete guide for performing a clean installation of Q4OS Desktop on ARM devices",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">ARM Device Installation</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>A Clean Install of Q4OS Desktop on ARM Device</h1>
+                        <p class="lead">Administrator guide for installing Q4OS on ARM-based devices including Raspberry Pi and other single-board computers.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section aria-labelledby="overview">
+                            <h2 id="overview">Overview</h2>
+                            <p>Q4OS provides ARM builds optimized for various ARM-based devices, offering the Trinity Desktop experience on low-power, embedded systems. This guide covers clean installation procedures for supported ARM platforms.</p>
+
+                            <h3>Supported ARM Devices</h3>
+                            <ul>
+                                <li><strong>Raspberry Pi:</strong> Pi 3, Pi 4, Pi 400, Pi 5 (ARMv7/ARMv8)</li>
+                                <li><strong>Pine64:</strong> Pine A64, Rock64, RockPro64</li>
+                                <li><strong>Odroid:</strong> C2, C4, N2, XU4</li>
+                                <li><strong>Orange Pi:</strong> PC, PC Plus, One</li>
+                                <li><strong>Generic ARM64:</strong> Compatible single-board computers</li>
+                            </ul>
+
+                            <div class="alert alert-info" role="alert">
+                                <strong>Note:</strong> ARM support may vary by device model. Check the Q4OS downloads page for device-specific images and compatibility information.
+                            </div>
+                        </section>
+
+                        <section aria-labelledby="prerequisites" class="mt-4">
+                            <h2 id="prerequisites">Prerequisites</h2>
+                            
+                            <h3>Required Hardware</h3>
+                            <ul>
+                                <li>Compatible ARM device (see supported devices list)</li>
+                                <li>MicroSD card (16GB minimum, Class 10 recommended)</li>
+                                <li>Power supply appropriate for your device</li>
+                                <li>HDMI cable and display</li>
+                                <li>USB keyboard and mouse</li>
+                                <li>Ethernet cable or WiFi adapter</li>
+                            </ul>
+
+                            <h3>Required Software</h3>
+                            <ul>
+                                <li>Q4OS ARM image for your device</li>
+                                <li>Image writing software (Raspberry Pi Imager, Etcher, dd)</li>
+                                <li>Computer with SD card reader</li>
+                            </ul>
+
+                            <h3>Recommended Specifications</h3>
+                            <ul>
+                                <li><strong>RAM:</strong> 2GB minimum, 4GB+ recommended</li>
+                                <li><strong>Storage:</strong> 32GB+ microSD card for better performance</li>
+                                <li><strong>Network:</strong> Gigabit Ethernet or 802.11ac WiFi</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="raspberry-pi-installation" class="mt-4">
+                            <h2 id="raspberry-pi-installation">Raspberry Pi Installation</h2>
+                            
+                            <h3>Downloading Q4OS for Raspberry Pi</h3>
+                            <ol>
+                                <li>Visit the <a href="downloads.html">Q4OS Downloads page</a></li>
+                                <li>Select the appropriate Raspberry Pi image:
+                                    <ul>
+                                        <li>Q4OS ARM for Raspberry Pi 3/4/400 (32-bit)</li>
+                                        <li>Q4OS ARM64 for Raspberry Pi 4/5 (64-bit)</li>
+                                    </ul>
+                                </li>
+                                <li>Download the .img.xz compressed image file</li>
+                                <li>Verify the download checksum if provided</li>
+                            </ol>
+
+                            <h3>Using Raspberry Pi Imager (Recommended)</h3>
+                            <ol>
+                                <li>Download and install <a href="https://rpi.org/imager" target="_blank" rel="noopener">Raspberry Pi Imager</a></li>
+                                <li>Insert your microSD card into the computer</li>
+                                <li>Launch Raspberry Pi Imager</li>
+                                <li>Click "Choose OS" → "Use custom" → Select your Q4OS image file</li>
+                                <li>Click the gear icon for advanced options:
+                                    <ul>
+                                        <li>Enable SSH (optional)</li>
+                                        <li>Set username and password</li>
+                                        <li>Configure WiFi settings</li>
+                                        <li>Set locale settings</li>
+                                    </ul>
+                                </li>
+                                <li>Select your SD card and click "Write"</li>
+                                <li>Wait for the writing and verification to complete</li>
+                            </ol>
+
+                            <h3>Using Etcher (Cross-platform)</h3>
+                            <ol>
+                                <li>Download and install <a href="https://etcher.io" target="_blank" rel="noopener">Balena Etcher</a></li>
+                                <li>Extract the Q4OS .img file from the .xz archive</li>
+                                <li>Launch Etcher</li>
+                                <li>Select the Q4OS .img file</li>
+                                <li>Select your SD card (be careful to choose the correct device)</li>
+                                <li>Click "Flash" and wait for completion</li>
+                            </ol>
+
+                            <h3>Using dd Command (Linux/macOS)</h3>
+                            <pre><code># Extract the image
+unxz q4os-3.xx-armhf-rpicm.img.xz
+
+# Find the SD card device
+lsblk  # or sudo fdisk -l
+
+# Write the image (replace /dev/sdX with your SD card device)
+sudo dd if=q4os-3.xx-armhf-rpicm.img of=/dev/sdX bs=4M status=progress
+sudo sync</code></pre>
+
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Warning:</strong> Double-check the target device with dd command. Writing to the wrong device can destroy data.
+                            </div>
+                        </section>
+
+                        <section aria-labelledby="first-boot-setup" class="mt-4">
+                            <h2 id="first-boot-setup">First Boot Setup</h2>
+                            
+                            <h3>Initial Boot Process</h3>
+                            <ol>
+                                <li>Insert the prepared SD card into your ARM device</li>
+                                <li>Connect HDMI, keyboard, mouse, and network</li>
+                                <li>Connect power supply to boot the device</li>
+                                <li>Wait for the initial boot and file system expansion</li>
+                                <li>The system will reboot automatically after expansion</li>
+                            </ol>
+
+                            <h3>Q4OS Welcome Screen</h3>
+                            <p>On first boot, Q4OS will present a welcome screen for initial configuration:</p>
+                            <ol>
+                                <li>Select your language and region</li>
+                                <li>Configure keyboard layout</li>
+                                <li>Set up network connection (if not configured during imaging)</li>
+                                <li>Create user account (if not set during imaging)</li>
+                                <li>Configure system settings</li>
+                            </ol>
+
+                            <h3>Trinity Desktop Setup</h3>
+                            <p>After initial setup, Trinity Desktop will load with ARM-optimized settings:</p>
+                            <ul>
+                                <li>Reduced visual effects for better performance</li>
+                                <li>Optimized memory usage</li>
+                                <li>ARM-specific hardware acceleration where available</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="post-installation-configuration" class="mt-4">
+                            <h2 id="post-installation-configuration">Post-Installation Configuration</h2>
+                            
+                            <h3>System Updates</h3>
+                            <p>Update the system after first boot:</p>
+                            <pre><code>sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove</code></pre>
+
+                            <h3>Hardware-Specific Configuration</h3>
+                            
+                            <h4>Raspberry Pi Configuration</h4>
+                            <p>Use raspi-config for Pi-specific settings:</p>
+                            <pre><code>sudo raspi-config</code></pre>
+                            
+                            <p>Common configurations:</p>
+                            <ul>
+                                <li><strong>Advanced Options → Memory Split:</strong> Set to 64MB for desktop use</li>
+                                <li><strong>Interface Options:</strong> Enable SPI, I2C, Camera as needed</li>
+                                <li><strong>Performance Options:</strong> Set GPU memory split</li>
+                                <li><strong>Localisation Options:</strong> Set timezone, WiFi country</li>
+                            </ul>
+
+                            <h4>GPU Memory Configuration</h4>
+                            <p>Edit /boot/config.txt for graphics memory allocation:</p>
+                            <pre><code>sudo nano /boot/config.txt
+
+# Add or modify:
+gpu_mem=128
+# or for 1GB RAM devices:
+gpu_mem=64</code></pre>
+
+                            <h3>Performance Optimization</h3>
+                            
+                            <h4>Swap Configuration</h4>
+                            <p>Optimize swap for SD card longevity:</p>
+                            <pre><code># Reduce swappiness
+echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
+
+# Consider disabling swap entirely for read-only systems
+sudo systemctl stop dphys-swapfile
+sudo systemctl disable dphys-swapfile</code></pre>
+
+                            <h4>File System Optimization</h4>
+                            <p>Edit /etc/fstab to reduce SD card wear:</p>
+                            <pre><code>sudo nano /etc/fstab
+
+# Add noatime option to reduce writes:
+/dev/mmcblk0p2 / ext4 defaults,noatime 0 1
+tmpfs /tmp tmpfs defaults,noatime,nosuid,size=100m 0 0
+tmpfs /var/tmp tmpfs defaults,noatime,nosuid,size=30m 0 0</code></pre>
+                        </section>
+
+                        <section aria-labelledby="other-arm-devices" class="mt-4">
+                            <h2 id="other-arm-devices">Other ARM Device Installation</h2>
+                            
+                            <h3>Pine64 Devices</h3>
+                            <p>For Pine64 boards (Rock64, RockPro64):</p>
+                            <ol>
+                                <li>Download the Pine64-specific Q4OS image</li>
+                                <li>Write to SD card or eMMC module using dd or Etcher</li>
+                                <li>Boot and follow the setup wizard</li>
+                                <li>Configure device-specific features through device tree overlays</li>
+                            </ol>
+
+                            <h3>Odroid Devices</h3>
+                            <p>For Odroid single-board computers:</p>
+                            <ol>
+                                <li>Use the appropriate Odroid Q4OS image</li>
+                                <li>Flash to microSD card or eMMC</li>
+                                <li>Configure boot parameters in boot.ini if available</li>
+                                <li>Set up cooling and fan control as needed</li>
+                            </ol>
+
+                            <h3>Generic ARM64 Installation</h3>
+                            <p>For other ARM64 devices:</p>
+                            <ol>
+                                <li>Try the generic ARM64 Q4OS image</li>
+                                <li>Boot from USB or SD card</li>
+                                <li>Install using the standard Debian installer</li>
+                                <li>Configure hardware-specific drivers post-installation</li>
+                            </ol>
+                        </section>
+
+                        <section aria-labelledby="networking-setup" class="mt-4">
+                            <h2 id="networking-setup">Networking Setup</h2>
+                            
+                            <h3>WiFi Configuration</h3>
+                            <p>Configure WiFi using NetworkManager GUI or command line:</p>
+                            
+                            <h4>Using GUI</h4>
+                            <ol>
+                                <li>Click the network icon in the system tray</li>
+                                <li>Select your WiFi network</li>
+                                <li>Enter the password</li>
+                                <li>Click Connect</li>
+                            </ol>
+
+                            <h4>Using Command Line</h4>
+                            <pre><code># Scan for networks
+sudo iwlist wlan0 scan | grep ESSID
+
+# Connect to network
+sudo wpa_passphrase "YourNetworkName" "YourPassword" >> /etc/wpa_supplicant/wpa_supplicant.conf
+
+# Restart networking
+sudo systemctl restart networking</code></pre>
+
+                            <h3>Static IP Configuration</h3>
+                            <p>Configure static IP through NetworkManager or /etc/network/interfaces:</p>
+                            <pre><code>sudo nano /etc/network/interfaces
+
+# Add static configuration:
+auto eth0
+iface eth0 inet static
+address 192.168.1.100
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8 8.8.4.4</code></pre>
+
+                            <h3>SSH Access</h3>
+                            <p>Enable SSH for remote administration:</p>
+                            <pre><code>sudo systemctl enable ssh
+sudo systemctl start ssh
+
+# Change default password for security
+passwd</code></pre>
+                        </section>
+
+                        <section aria-labelledby="software-installation" class="mt-4">
+                            <h2 id="software-installation">Software Installation and Management</h2>
+                            
+                            <h3>ARM-Optimized Software</h3>
+                            <p>Install ARM-optimized applications:</p>
+                            <pre><code># Essential applications
+sudo apt install firefox-esr libreoffice
+sudo apt install vlc gimp
+sudo apt install code-oss  # ARM-compatible VS Code
+
+# Development tools
+sudo apt install build-essential python3-dev
+sudo apt install nodejs npm
+sudo apt install git cmake</code></pre>
+
+                            <h3>Pi-specific Software</h3>
+                            <p>For Raspberry Pi devices:</p>
+                            <pre><code># Pi-specific tools
+sudo apt install rpi-update
+sudo apt install wiringpi
+sudo apt install python3-rpi.gpio
+
+# Camera support
+sudo apt install raspicam
+sudo apt install python3-picamera</code></pre>
+
+                            <h3>Performance Monitoring</h3>
+                            <p>Install monitoring tools:</p>
+                            <pre><code>sudo apt install htop iotop
+sudo apt install lm-sensors
+sudo apt install stress-ng  # for testing</code></pre>
+                        </section>
+
+                        <section aria-labelledby="troubleshooting" class="mt-4">
+                            <h2 id="troubleshooting">Troubleshooting</h2>
+                            
+                            <h3>Boot Issues</h3>
+                            <ul>
+                                <li><strong>Red LED only:</strong> Check power supply and SD card</li>
+                                <li><strong>Rainbow screen:</strong> Corrupted boot partition, re-flash SD card</li>
+                                <li><strong>Kernel panic:</strong> Hardware compatibility issue, try different image</li>
+                                <li><strong>No HDMI output:</strong> Check HDMI cable and display compatibility</li>
+                            </ul>
+
+                            <h3>Performance Issues</h3>
+                            <ul>
+                                <li><strong>Slow boot:</strong> Use faster SD card (Class 10, U3)</li>
+                                <li><strong>System lag:</strong> Increase GPU memory, disable unnecessary services</li>
+                                <li><strong>Overheating:</strong> Improve cooling, reduce CPU frequency</li>
+                                <li><strong>Memory errors:</strong> Test RAM, check power supply stability</li>
+                            </ul>
+
+                            <h3>Network Problems</h3>
+                            <ul>
+                                <li><strong>WiFi not working:</strong> Check country code settings</li>
+                                <li><strong>Ethernet issues:</strong> Check cable and network configuration</li>
+                                <li><strong>DNS problems:</strong> Verify DNS server settings</li>
+                            </ul>
+
+                            <h3>Log Analysis</h3>
+                            <p>Check system logs for issues:</p>
+                            <pre><code># Boot messages
+dmesg | less
+
+# System logs
+journalctl -b
+
+# Hardware info
+lscpu
+lsusb
+lspci  # if available</code></pre>
+                        </section>
+
+                        <section aria-labelledby="advanced-configuration" class="mt-4">
+                            <h2 id="advanced-configuration">Advanced Configuration</h2>
+                            
+                            <h3>Overclocking (Raspberry Pi)</h3>
+                            <p>Safely overclock for better performance:</p>
+                            <pre><code>sudo nano /boot/config.txt
+
+# Conservative overclock for Pi 4:
+over_voltage=2
+arm_freq=1750
+gpu_freq=500
+
+# Ensure adequate cooling before overclocking</code></pre>
+
+                            <h3>Boot from USB/SSD</h3>
+                            <p>Configure boot from USB storage for better performance:</p>
+                            <ol>
+                                <li>Update Pi firmware to latest version</li>
+                                <li>Enable USB boot in Pi configuration</li>
+                                <li>Clone SD card to USB drive</li>
+                                <li>Modify boot configuration for USB priority</li>
+                            </ol>
+
+                            <h3>Headless Setup</h3>
+                            <p>Configure for headless operation:</p>
+                            <pre><code># Disable unnecessary services
+sudo systemctl disable lightdm  # Disable GUI
+sudo systemctl set-default multi-user.target
+
+# Enable serial console
+sudo raspi-config  # Interface Options → Serial Port</code></pre>
+
+                            <h3>Custom Boot Splash</h3>
+                            <p>Customize boot splash screen:</p>
+                            <pre><code>sudo apt install plymouth plymouth-themes
+sudo update-initramfs -u
+
+# Edit /boot/cmdline.txt to add:
+# splash quiet plymouth.ignore-serial-consoles</code></pre>
+                        </section>
+
+                        <section aria-labelledby="maintenance" class="mt-4">
+                            <h2 id="maintenance">System Maintenance</h2>
+                            
+                            <h3>Regular Updates</h3>
+                            <p>Keep the system updated:</p>
+                            <pre><code># Weekly update routine
+sudo apt update && sudo apt upgrade -y
+sudo apt autoremove --purge
+sudo apt autoclean
+
+# Update Pi firmware (Raspberry Pi only)
+sudo rpi-update</code></pre>
+
+                            <h3>SD Card Health</h3>
+                            <p>Monitor SD card health:</p>
+                            <pre><code># Check file system
+sudo fsck /dev/mmcblk0p2
+
+# Monitor I/O stats
+iostat -x 1
+
+# Backup critical data regularly</code></pre>
+
+                            <h3>System Backup</h3>
+                            <p>Create system backups:</p>
+                            <pre><code># Create disk image backup
+sudo dd if=/dev/mmcblk0 of=/path/to/backup.img bs=4M status=progress
+
+# Compress backup
+gzip /path/to/backup.img</code></pre>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

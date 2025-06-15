@@ -64,7 +64,7 @@
 					<a class="nav-link" href="downloads.html" role="menuitem">Downloads</a>
 				</li>
 				<li class="nav-item" role="none">
-					<a class="nav-link" href="documents.html" role="menuitem">Documents</a>
+					<a class="nav-link" href="documents.html" role="menuitem">Documentation</a>
 				</li>
 				<li class="nav-item" role="none">
 					<a class="nav-link" href="partner.html" role="menuitem">Partner</a>
@@ -79,12 +79,6 @@
 					<a class="nav-link" href="/shop/" role="menuitem">Shop</a>
 				</li>
 			</ul>
-			<span class="navbar-text">
-				<button type="button" class="btn btn-primary text-white" data-bs-toggle="modal"
-					data-bs-target="#donationmodal" aria-label="Open donation form">
-					Donate
-				</button>
-			</span>
 		</div>
 	</nav>
 	<!-- Wrapper -->
@@ -223,10 +217,10 @@
 								<h5 class="text-primary mb-3">Q4OS</h5>
 								<nav aria-label="Main pages">
 									<ul class="list-unstyled">
-										<li><a href="index.html" class="text-decoration-none">Home</a></li>
-										<li><a href="downloads.html" class="text-decoration-none">Downloads</a></li>
-										<li><a href="documents.html" class="text-decoration-none">Documentation</a></li>
-										<li><a href="blog.html" class="text-decoration-none">Blog</a></li>
+										<li><a href="index.html" class="text-decoration-underline">Home</a></li>
+										<li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+										<li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+										<li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -234,8 +228,8 @@
 								<h5 class="text-primary mb-3">Support</h5>
 								<nav aria-label="Support links">
 									<ul class="list-unstyled">
-										<li><a href="partner.html" class="text-decoration-none">Partnership & Support</a></li>
-										<li><a href="/forum/" class="text-decoration-none" target="_blank" rel="noopener">Community Forum</a></li>
+										<li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+										<li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -243,8 +237,9 @@
 								<h5 class="text-primary mb-3">Community</h5>
 								<nav aria-label="Social media links">
 									<ul class="list-unstyled">
-										<li><a href="https://twitter.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-none">Twitter</a></li>
-										<li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-none">GitHub</a></li>
+										<li><a href="https://floss.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+						<li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+										<li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -252,7 +247,7 @@
 								<h5 class="text-primary mb-3">Shop</h5>
 								<nav aria-label="Shop links">
 									<ul class="list-unstyled">
-										<li><a href="/shop/" class="text-decoration-none" target="_blank" rel="noopener">Q4OS Shop</a></li>
+										<li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -260,17 +255,9 @@
 					</div>
 					<div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
 						<div class="text-center text-md-end">
-							<nav aria-label="Social media icons" class="mb-3">
-								<a href="https://twitter.com/q4osteam" target="_blank" rel="noopener" aria-label="Follow Q4OS on Twitter (opens in new tab)" class="me-3">
-									<img src="img/twitter-logo.png" alt="Twitter logo" width="30">
-								</a>
-								<a href="https://github.com/q4os" target="_blank" rel="noopener" aria-label="View Q4OS on GitHub (opens in new tab)">
-									<img src="img/github-logo.svg" alt="GitHub logo" width="30">
-								</a>
-							</nav>
 							<p class="copyright text-black mb-0">
-								&copy; Q4OS. All Rights Reserved.<br>
-								<span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: none;" target="_blank" rel="noopener">KevDoy</a></span>
+								&copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+								<span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
 							</p>
 						</div>
 					</div>
@@ -317,6 +304,10 @@
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<!-- Update copyright year -->
+	<script>
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+	</script>
 </body>
 
 </html>

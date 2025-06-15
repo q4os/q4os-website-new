@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Step-by-step to Create New Q4OS C++ Application - Developer Guide</title>
+    <meta name="description" content="Complete developer guide for creating C++ applications for Q4OS Trinity desktop. Learn Qt development, Trinity integration, and application packaging.">
+    <meta name="keywords" content="Q4OS C++ development, Trinity desktop programming, Qt applications, C++ applications, Q4OS development">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa008.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa008.html">
+    <meta property="og:title" content="Step-by-step to Create New Q4OS C++ Application">
+    <meta property="og:description" content="Complete developer guide for creating C++ applications for Q4OS Trinity desktop.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa008.html">
+    <meta property="twitter:title" content="Step-by-step to Create New Q4OS C++ Application">
+    <meta property="twitter:description" content="Complete developer guide for creating C++ applications for Q4OS Trinity desktop.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Step-by-step to Create New Q4OS C++ Application",
+        "description": "Complete developer guide for creating C++ applications for Q4OS Trinity desktop",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">C++ Application Development</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>Step-by-step to Create New Q4OS C++ Application</h1>
+                        <p class="lead">Complete developer guide for creating C++ applications integrated with Q4OS Trinity desktop environment.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section aria-labelledby="overview">
+                            <h2 id="overview">Overview</h2>
+                            <p>This guide walks through creating C++ applications for Q4OS Trinity desktop, covering everything from development environment setup to application packaging and distribution. Q4OS applications typically use Qt/TQt frameworks for optimal Trinity integration.</p>
+
+                            <h3>Development Options</h3>
+                            <ul>
+                                <li><strong>TQt (Trinity Qt):</strong> Trinity's Qt3 fork for native Trinity applications</li>
+                                <li><strong>Qt5/Qt6:</strong> Modern Qt development with Trinity integration</li>
+                                <li><strong>KDE3 Libraries:</strong> For applications using legacy KDE3 APIs</li>
+                                <li><strong>GTK+:</strong> Cross-platform applications with GTK+ framework</li>
+                            </ul>
+
+                            <h3>Application Types</h3>
+                            <ul>
+                                <li>Desktop applications with GUI</li>
+                                <li>System utilities and tools</li>
+                                <li>Trinity Control Center modules</li>
+                                <li>Plasma-style widgets and applets</li>
+                                <li>Command-line applications</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="development-environment" class="mt-4">
+                            <h2 id="development-environment">Setting Up Development Environment</h2>
+                            
+                            <h3>Installing Development Tools</h3>
+                            <pre><code># Essential development packages
+sudo apt update
+sudo apt install build-essential
+sudo apt install cmake cmake-qt-gui
+sudo apt install git git-cola
+
+# Trinity development libraries
+sudo apt install libtqt3-mt-dev
+sudo apt install trinity-dev
+sudo apt install tdelibs14-trinity-dev
+sudo apt install tdebase-trinity-dev
+
+# Qt5 development (for modern Qt applications)
+sudo apt install qt5-default
+sudo apt install qtbase5-dev qtdeclarative5-dev
+sudo apt install qttools5-dev qttools5-dev-tools
+
+# Additional development tools
+sudo apt install gdb valgrind
+sudo apt install doxygen graphviz
+sudo apt install desktop-file-utils</code></pre>
+
+                            <h3>Setting Up IDE</h3>
+                            <p>Choose your preferred development environment:</p>
+
+                            <h4>Qt Creator (Recommended)</h4>
+                            <pre><code>sudo apt install qtcreator
+sudo apt install qtcreator-plugin-cmake</code></pre>
+
+                            <h4>KDevelop</h4>
+                            <pre><code>sudo apt install kdevelop
+sudo apt install kdevelop-php</code></pre>
+
+                            <h4>VS Code</h4>
+                            <pre><code># Install VS Code
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt update
+sudo apt install code
+
+# Install C++ extensions
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.cmake-tools</code></pre>
+                        </section>
+
+                        <section aria-labelledby="project-structure" class="mt-4">
+                            <h2 id="project-structure">Project Structure and Setup</h2>
+                            
+                            <h3>Creating Project Directory</h3>
+                            <pre><code># Create project structure
+mkdir myapp
+cd myapp
+mkdir src include resources translations
+mkdir build  # For out-of-source builds
+mkdir packaging  # For distribution packaging
+
+# Initialize git repository
+git init
+echo "build/" > .gitignore
+echo "*.o" >> .gitignore
+echo "*.so*" >> .gitignore
+echo "*~" >> .gitignore</code></pre>
+
+                            <h3>Basic Project Structure</h3>
+                            <pre><code>myapp/
+├── CMakeLists.txt          # Main build configuration
+├── README.md               # Project documentation
+├── LICENSE                 # Software license
+├── src/                    # Source code
+│   ├── main.cpp           # Application entry point
+│   ├── mainwindow.cpp     # Main window implementation
+│   └── mainwindow.h       # Main window header
+├── include/               # Public headers
+├── resources/             # Application resources
+│   ├── icons/            # Application icons
+│   ├── images/           # Images and graphics
+│   └── myapp.desktop     # Desktop entry file
+├── translations/          # Internationalization files
+├── build/                # Build output directory
+└── packaging/            # Distribution packaging files</code></pre>
+                        </section>
+
+                        <section aria-labelledby="tqt-application" class="mt-4">
+                            <h2 id="tqt-application">Creating a TQt Application</h2>
+                            
+                            <h3>Basic TQt Application</h3>
+                            <p>Create a simple Trinity-native application using TQt:</p>
+
+                            <h4>main.cpp</h4>
+                            <pre><code>#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqmainwindow.h>
+#include <tqmenubar.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqstring.h>
+
+class MyMainWindow : public TQMainWindow
+{
+    Q_OBJECT
+
+public:
+    MyMainWindow(TQWidget* parent = 0, const char* name = 0)
+        : TQMainWindow(parent, name)
+    {
+        setCaption("My Q4OS Application");
+        resize(400, 300);
+        
+        // Create central widget
+        TQPushButton* button = new TQPushButton("Hello Q4OS!", this);
+        setCentralWidget(button);
+        
+        // Connect button signal
+        connect(button, SIGNAL(clicked()), this, SLOT(showMessage()));
+        
+        // Create menu bar
+        TQMenuBar* menuBar = this->menuBar();
+        TQPopupMenu* fileMenu = new TQPopupMenu(this);
+        fileMenu->insertItem("&Quit", this, SLOT(close()), CTRL+Key_Q);
+        menuBar->insertItem("&File", fileMenu);
+        
+        // Create status bar
+        statusBar()->message("Ready", 2000);
+    }
+
+private slots:
+    void showMessage()
+    {
+        TQMessageBox::information(this, "Information", 
+                                 "Hello from Q4OS Trinity Desktop!");
+    }
+};
+
+#include "main.moc"
+
+int main(int argc, char *argv[])
+{
+    TQApplication app(argc, argv);
+    
+    MyMainWindow window;
+    app.setMainWidget(&window);
+    window.show();
+    
+    return app.exec();
+}</code></pre>
+
+                            <h3>CMakeLists.txt for TQt</h3>
+                            <pre><code>cmake_minimum_required(VERSION 3.16)
+project(myapp VERSION 1.0.0)
+
+# Find TQt
+find_package(TQt REQUIRED)
+
+# Set compiler flags
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Include directories
+include_directories(${TQT_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# Source files
+set(SOURCES
+    src/main.cpp
+    src/mainwindow.cpp
+)
+
+# Headers that need MOC processing
+set(MOC_HEADERS
+    src/mainwindow.h
+)
+
+# Process MOC files
+tqt_wrap_cpp(MOC_SOURCES ${MOC_HEADERS})
+
+# Create executable
+add_executable(myapp ${SOURCES} ${MOC_SOURCES})
+
+# Link libraries
+target_link_libraries(myapp ${TQT_LIBRARIES})
+
+# Install rules
+install(TARGETS myapp DESTINATION bin)
+install(FILES resources/myapp.desktop DESTINATION share/applications)
+install(FILES resources/icons/myapp.png DESTINATION share/pixmaps)</code></pre>
+                        </section>
+
+                        <section aria-labelledby="qt5-application" class="mt-4">
+                            <h2 id="qt5-application">Creating a Qt5 Application</h2>
+                            
+                            <h3>Modern Qt5 Application</h3>
+                            <p>For modern applications using Qt5:</p>
+
+                            <h4>main.cpp</h4>
+                            <pre><code>#include <QApplication>
+#include <QMainWindow>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QWidget>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QMessageBox>
+#include <QLabel>
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr)
+        : QMainWindow(parent)
+    {
+        setWindowTitle("My Q4OS Qt5 Application");
+        setMinimumSize(400, 300);
+        
+        // Create central widget and layout
+        QWidget *centralWidget = new QWidget(this);
+        setCentralWidget(centralWidget);
+        
+        QVBoxLayout *layout = new QVBoxLayout(centralWidget);
+        
+        // Add widgets
+        QLabel *label = new QLabel("Welcome to Q4OS!", this);
+        label->setAlignment(Qt::AlignCenter);
+        layout->addWidget(label);
+        
+        QPushButton *button = new QPushButton("Click Me!", this);
+        connect(button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
+        layout->addWidget(button);
+        
+        // Create menu
+        createMenus();
+        
+        // Status bar
+        statusBar()->showMessage("Ready", 2000);
+    }
+
+private slots:
+    void onButtonClicked()
+    {
+        QMessageBox::information(this, "Information", 
+                               "Hello from Q4OS with Qt5!");
+    }
+    
+    void about()
+    {
+        QMessageBox::about(this, "About", 
+                          "My Q4OS Application v1.0\n"
+                          "Built for Q4OS Trinity Desktop");
+    }
+
+private:
+    void createMenus()
+    {
+        QMenu *fileMenu = menuBar()->addMenu("&File");
+        fileMenu->addAction("&Quit", this, &QWidget::close, QKeySequence::Quit);
+        
+        QMenu *helpMenu = menuBar()->addMenu("&Help");
+        helpMenu->addAction("&About", this, &MainWindow::about);
+    }
+};
+
+#include "main.moc"
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    
+    app.setApplicationName("MyApp");
+    app.setApplicationVersion("1.0");
+    app.setOrganizationName("Q4OS Developer");
+    
+    MainWindow window;
+    window.show();
+    
+    return app.exec();
+}</code></pre>
+
+                            <h3>CMakeLists.txt for Qt5</h3>
+                            <pre><code>cmake_minimum_required(VERSION 3.16)
+project(myapp VERSION 1.0.0)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find Qt5
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
+
+# Enable automoc for Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+# Source files
+set(SOURCES
+    src/main.cpp
+    src/mainwindow.cpp
+)
+
+set(HEADERS
+    include/mainwindow.h
+)
+
+# Include directories
+include_directories(include)
+
+# Create executable
+add_executable(myapp ${SOURCES} ${HEADERS})
+
+# Link Qt5 libraries
+target_link_libraries(myapp Qt5::Core Qt5::Widgets)
+
+# Install rules
+install(TARGETS myapp DESTINATION bin)
+install(FILES resources/myapp.desktop DESTINATION share/applications)
+install(FILES resources/icons/myapp.png DESTINATION share/pixmaps)</code></pre>
+                        </section>
+
+                        <section aria-labelledby="trinity-integration" class="mt-4">
+                            <h2 id="trinity-integration">Trinity Desktop Integration</h2>
+                            
+                            <h3>Desktop Entry File</h3>
+                            <p>Create resources/myapp.desktop for proper desktop integration:</p>
+                            <pre><code>[Desktop Entry]
+Version=1.0
+Type=Application
+Name=My Application
+Name[es]=Mi Aplicación
+Comment=A great application for Q4OS
+Comment[es]=Una gran aplicación para Q4OS
+Exec=myapp
+Icon=myapp
+Terminal=false
+Categories=Office;Productivity;
+StartupNotify=true
+MimeType=text/plain;
+Keywords=productivity;office;
+</code></pre>
+
+                            <h3>Trinity Control Center Integration</h3>
+                            <p>For system configuration applications:</p>
+                            <pre><code>[Desktop Entry]
+Version=1.0
+Type=Application
+Name=My System Tool
+Comment=Configure system settings
+Exec=myapp
+Icon=preferences-system
+Terminal=false
+Categories=Settings;System;
+X-Trinity-Category=System
+X-Trinity-Module=myapp
+NoDisplay=false
+OnlyShowIn=Trinity;</code></pre>
+
+                            <h3>Application Icons</h3>
+                            <p>Create icons in multiple sizes:</p>
+                            <ul>
+                                <li>16x16 pixels for menu items</li>
+                                <li>32x32 pixels for desktop shortcuts</li>
+                                <li>48x48 pixels for application launchers</li>
+                                <li>64x64 and 128x128 for high-DPI displays</li>
+                            </ul>
+
+                            <pre><code># Install icons at different sizes
+install(FILES resources/icons/16x16/myapp.png 
+        DESTINATION share/icons/hicolor/16x16/apps)
+install(FILES resources/icons/32x32/myapp.png 
+        DESTINATION share/icons/hicolor/32x32/apps)
+install(FILES resources/icons/48x48/myapp.png 
+        DESTINATION share/icons/hicolor/48x48/apps)</code></pre>
+                        </section>
+
+                        <section aria-labelledby="internationalization" class="mt-4">
+                            <h2 id="internationalization">Internationalization (i18n)</h2>
+                            
+                            <h3>Adding Translation Support</h3>
+                            <p>For TQt applications:</p>
+                            <pre><code>#include <tqtranslator.h>
+#include <tqtextcodec.h>
+#include <tqlocale.h>
+
+int main(int argc, char *argv[])
+{
+    TQApplication app(argc, argv);
+    
+    // Set up translations
+    TQTranslator translator;
+    TQString locale = TQLocale::system().name();
+    
+    if (translator.load(TQString("myapp_") + locale, "/usr/share/myapp/translations")) {
+        app.installTranslator(&translator);
+    }
+    
+    // Rest of application...
+}</code></pre>
+
+                            <h3>Extracting Translatable Strings</h3>
+                            <pre><code># For TQt applications
+tqm2ts src/*.cpp src/*.h -ts translations/myapp_es.ts
+
+# For Qt5 applications
+lupdate src/*.cpp src/*.h -ts translations/myapp_es.ts
+
+# Convert .ts to .qm files
+lrelease translations/myapp_es.ts</code></pre>
+
+                            <h3>CMake Translation Support</h3>
+                            <pre><code># Find translation tools
+find_package(Qt5LinguistTools)
+
+# Translation files
+set(TS_FILES
+    translations/myapp_es.ts
+    translations/myapp_fr.ts
+    translations/myapp_de.ts
+)
+
+# Create .qm files from .ts files
+qt5_add_translation(QM_FILES ${TS_FILES})
+
+# Add translations to build
+add_custom_target(translations ALL DEPENDS ${QM_FILES})
+
+# Install translations
+install(FILES ${QM_FILES} DESTINATION share/myapp/translations)</code></pre>
+                        </section>
+
+                        <section aria-labelledby="configuration" class="mt-4">
+                            <h2 id="configuration">Configuration and Settings</h2>
+                            
+                            <h3>Using Trinity Configuration</h3>
+                            <p>For TQt applications using Trinity configuration system:</p>
+                            <pre><code>#include <tqsettings.h>
+#include <tqdir.h>
+
+class AppConfig
+{
+public:
+    AppConfig() 
+        : settings(TQDir::homeDirPath() + "/.trinity/share/config/myapprc", 
+                  TQSettings::Ini)
+    {
+        // Set default values
+        if (!settings.contains("General/FirstRun")) {
+            setDefaultSettings();
+        }
+    }
+    
+    void setValue(const TQString& key, const TQVariant& value)
+    {
+        settings.setValue(key, value);
+    }
+    
+    TQVariant getValue(const TQString& key, const TQVariant& defaultValue = TQVariant())
+    {
+        return settings.value(key, defaultValue);
+    }
+    
+private:
+    TQSettings settings;
+    
+    void setDefaultSettings()
+    {
+        settings.setValue("General/FirstRun", false);
+        settings.setValue("General/WindowWidth", 800);
+        settings.setValue("General/WindowHeight", 600);
+        settings.setValue("Behavior/AutoSave", true);
+    }
+};</code></pre>
+
+                            <h3>Qt5 Settings</h3>
+                            <pre><code>#include <QSettings>
+#include <QStandardPaths>
+
+class AppSettings
+{
+public:
+    AppSettings()
+        : settings(QSettings::IniFormat, QSettings::UserScope, 
+                  "Q4OS", "MyApp")
+    {
+        if (!settings.contains("firstRun")) {
+            setDefaults();
+        }
+    }
+    
+    void setValue(const QString& key, const QVariant& value)
+    {
+        settings.setValue(key, value);
+        settings.sync();
+    }
+    
+    QVariant getValue(const QString& key, const QVariant& defaultValue = QVariant()) const
+    {
+        return settings.value(key, defaultValue);
+    }
+    
+private:
+    QSettings settings;
+    
+    void setDefaults()
+    {
+        settings.setValue("firstRun", false);
+        settings.setValue("geometry/width", 800);
+        settings.setValue("geometry/height", 600);
+        settings.setValue("behavior/autoSave", true);
+    }
+};</code></pre>
+                        </section>
+
+                        <section aria-labelledby="building-testing" class="mt-4">
+                            <h2 id="building-testing">Building and Testing</h2>
+                            
+                            <h3>Building with CMake</h3>
+                            <pre><code># Create build directory
+mkdir build && cd build
+
+# Configure build
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+# or for release:
+# cmake .. -DCMAKE_BUILD_TYPE=Release
+
+# Build application
+make -j$(nproc)
+
+# Install to system (optional)
+sudo make install</code></pre>
+
+                            <h3>Debugging</h3>
+                            <pre><code># Debug with GDB
+gdb ./myapp
+
+# Memory leak detection with Valgrind
+valgrind --leak-check=full ./myapp
+
+# Profiling with Callgrind
+valgrind --tool=callgrind ./myapp</code></pre>
+
+                            <h3>Testing Framework</h3>
+                            <p>Add unit tests using Qt Test framework:</p>
+                            <pre><code>#include <QTest>
+#include <QApplication>
+
+class TestMyApp : public QObject
+{
+    Q_OBJECT
+
+private slots:
+    void initTestCase();
+    void testBasicFunctionality();
+    void testConfiguration();
+    void cleanupTestCase();
+};
+
+void TestMyApp::initTestCase()
+{
+    // Set up test environment
+}
+
+void TestMyApp::testBasicFunctionality()
+{
+    // Test application logic
+    QVERIFY(true);
+    QCOMPARE(2 + 2, 4);
+}
+
+void TestMyApp::testConfiguration()
+{
+    // Test configuration handling
+}
+
+void TestMyApp::cleanupTestCase()
+{
+    // Clean up after tests
+}
+
+QTEST_MAIN(TestMyApp)
+#include "test_myapp.moc"</code></pre>
+                        </section>
+
+                        <section aria-labelledby="packaging" class="mt-4">
+                            <h2 id="packaging">Packaging and Distribution</h2>
+                            
+                            <h3>Creating Debian Package</h3>
+                            <p>Create packaging/debian directory structure:</p>
+                            <pre><code>packaging/debian/
+├── control              # Package information
+├── rules               # Build rules
+├── changelog           # Package changelog
+├── copyright          # Copyright information
+├── myapp.install     # Installation files
+└── compat            # Debhelper compatibility level</code></pre>
+
+                            <h4>debian/control</h4>
+                            <pre><code>Source: myapp
+Section: utils
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper (>= 10), cmake, libtqt3-mt-dev, trinity-dev
+Standards-Version: 4.5.0
+Homepage: https://yourapp.com
+
+Package: myapp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtqt3-mt
+Description: My Q4OS Application
+ A great application designed for Q4OS Trinity Desktop.
+ .
+ This package provides the main application binary and
+ desktop integration files.</code></pre>
+
+                            <h4>debian/rules</h4>
+                            <pre><code>#!/usr/bin/make -f
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release</code></pre>
+
+                            <h3>Building Package</h3>
+                            <pre><code># Install packaging tools
+sudo apt install devscripts build-essential
+
+# Build source package
+cd packaging
+debuild -S -sa
+
+# Build binary package
+debuild -b
+
+# Or use pbuilder for clean environment
+sudo pbuilder build ../myapp_1.0.0-1.dsc</code></pre>
+
+                            <h3>AppImage Creation</h3>
+                            <pre><code># Install AppImage tools
+wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+chmod +x appimagetool-x86_64.AppImage
+
+# Create AppDir structure
+mkdir MyApp.AppDir
+cp myapp MyApp.AppDir/
+cp myapp.desktop MyApp.AppDir/
+cp myapp.png MyApp.AppDir/
+
+# Create AppImage
+./appimagetool-x86_64.AppImage MyApp.AppDir MyApp-x86_64.AppImage</code></pre>
+                        </section>
+
+                        <section aria-labelledby="best-practices" class="mt-4">
+                            <h2 id="best-practices">Best Practices</h2>
+                            
+                            <h3>Code Organization</h3>
+                            <ul>
+                                <li>Separate UI code from business logic</li>
+                                <li>Use proper header guards or #pragma once</li>
+                                <li>Follow consistent naming conventions</li>
+                                <li>Document public APIs with Doxygen comments</li>
+                                <li>Use version control effectively</li>
+                            </ul>
+
+                            <h3>Trinity Integration</h3>
+                            <ul>
+                                <li>Follow Trinity Human Interface Guidelines</li>
+                                <li>Use standard Trinity icons and themes</li>
+                                <li>Integrate with Trinity system settings</li>
+                                <li>Support Trinity keyboard shortcuts</li>
+                                <li>Test with different Trinity themes</li>
+                            </ul>
+
+                            <h3>Performance</h3>
+                            <ul>
+                                <li>Minimize memory usage and startup time</li>
+                                <li>Use efficient algorithms and data structures</li>
+                                <li>Implement lazy loading where appropriate</li>
+                                <li>Profile application performance regularly</li>
+                                <li>Optimize for low-end hardware</li>
+                            </ul>
+
+                            <h3>Security</h3>
+                            <ul>
+                                <li>Validate all user inputs</li>
+                                <li>Use secure coding practices</li>
+                                <li>Handle errors gracefully</li>
+                                <li>Avoid buffer overflows and memory leaks</li>
+                                <li>Follow principle of least privilege</li>
+                            </ul>
+                        </section>
+
+                        <section aria-labelledby="resources" class="mt-4">
+                            <h2 id="resources">Additional Resources</h2>
+                            
+                            <h3>Documentation</h3>
+                            <ul>
+                                <li><a href="https://wiki.trinitydesktop.org" target="_blank" rel="noopener">Trinity Desktop Wiki</a></li>
+                                <li><a href="https://doc.qt.io/" target="_blank" rel="noopener">Qt Documentation</a></li>
+                                <li><a href="https://cmake.org/documentation/" target="_blank" rel="noopener">CMake Documentation</a></li>
+                                <li><a href="https://www.debian.org/doc/manuals/maint-guide/" target="_blank" rel="noopener">Debian Maintainer's Guide</a></li>
+                            </ul>
+
+                            <h3>Community</h3>
+                            <ul>
+                                <li><a href="/forum/" target="_blank" rel="noopener">Q4OS Community Forum</a></li>
+                                <li><a href="https://github.com/q4os" target="_blank" rel="noopener">Q4OS GitHub Organization</a></li>
+                                <li>Trinity Desktop mailing lists</li>
+                                <li>Qt development forums</li>
+                            </ul>
+
+                            <h3>Tools and Libraries</h3>
+                            <ul>
+                                <li>Qt Creator IDE</li>
+                                <li>KDevelop IDE</li>
+                                <li>Git version control</li>
+                                <li>Doxygen documentation generator</li>
+                                <li>Valgrind memory analyzer</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

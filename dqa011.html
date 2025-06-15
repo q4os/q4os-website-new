@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Q4OS Frequently Asked Questions - Common Issues and Solutions</title>
+    <meta name="description" content="Find answers to common Q4OS questions. Get help with installation, configuration, troubleshooting, and using Q4OS Trinity desktop effectively.">
+    <meta name="keywords" content="Q4OS FAQ, Q4OS help, Q4OS troubleshooting, Q4OS questions, Trinity desktop support">
+    <meta name="author" content="Q4OS Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://q4os.org/dqa011.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://q4os.org/dqa011.html">
+    <meta property="og:title" content="Q4OS Frequently Asked Questions">
+    <meta property="og:description" content="Find answers to common Q4OS questions and troubleshooting solutions.">
+    <meta property="og:image" content="https://q4os.org/og.jpg">
+    <meta property="og:site_name" content="Q4OS">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://q4os.org/dqa011.html">
+    <meta property="twitter:title" content="Q4OS Frequently Asked Questions">
+    <meta property="twitter:description" content="Find answers to common Q4OS questions and troubleshooting solutions.">
+    <meta property="twitter:image" content="https://q4os.org/og.jpg">
+    <meta property="twitter:site" content="@q4osteam">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "headline": "Q4OS Frequently Asked Questions",
+        "description": "Find answers to common Q4OS questions and troubleshooting solutions",
+        "image": "https://q4os.org/og.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Q4OS Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Q4OS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://q4os.org/img/q4os-logo-vertical.svg"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01"
+    }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/javascript.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-primary position-absolute start-0 top-0 m-2">Skip to main content</a>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" role="navigation" aria-label="Main navigation">
+		<a class="navbar-brand" href="index.html"><img src="img/q4os-logo-vertical.svg" alt="Q4OS"
+				style="width: 150px;"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="downloads.html">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documents.html">Documentation</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="partner.html">Partner</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/forum/">Forum</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog.html">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/shop/">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <main id="main-content">
+            <div class="container">
+                <!-- Breadcrumb navigation -->
+                <nav aria-label="Breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="documents.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12">
+                        <h1>Frequently Asked Questions</h1>
+                        <p class="lead">Common questions and answers about Q4OS Trinity desktop.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="accordion" id="faqAccordion">
+                            <!-- General Questions -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="general-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general-collapse" aria-expanded="false" aria-controls="general-collapse">
+                                        General Questions
+                                    </button>
+                                </h2>
+                                <div id="general-collapse" class="accordion-collapse collapse" aria-labelledby="general-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>What is Q4OS?</h4>
+                                        <p>Q4OS is a Linux distribution featuring the Trinity Desktop Environment, designed to provide a familiar Windows-like experience while offering modern Linux capabilities and security.</p>
+
+                                        <h4>What is Trinity Desktop?</h4>
+                                        <p>Trinity Desktop is a continuation of KDE 3.5, providing a classic desktop environment with traditional menus, toolbars, and window management that many users find familiar and efficient.</p>
+
+                                        <h4>Is Q4OS suitable for beginners?</h4>
+                                        <p>Yes! Q4OS is designed with user-friendliness in mind. The Trinity desktop provides an intuitive interface similar to Windows XP/7, making it easy for new Linux users to get started.</p>
+
+                                        <h4>What are the system requirements?</h4>
+                                        <p>Q4OS has modest system requirements: 1GB RAM minimum (2GB recommended), 5GB storage minimum (10GB recommended), and any x86 or x64 compatible processor.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Installation -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="installation-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#installation-collapse" aria-expanded="false" aria-controls="installation-collapse">
+                                        Installation Issues
+                                    </button>
+                                </h2>
+                                <div id="installation-collapse" class="accordion-collapse collapse" aria-labelledby="installation-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>Can I install Q4OS alongside Windows?</h4>
+                                        <p>Yes! Q4OS can be installed alongside Windows in a dual-boot configuration. The installer will automatically detect Windows and create a boot menu. See our <a href="dqa014.html">Windows installation guide</a> for details.</p>
+
+                                        <h4>The system won't boot from USB. What should I do?</h4>
+                                        <p>Check your BIOS/UEFI settings to ensure USB boot is enabled and set as a boot priority. Also verify that your USB was created correctly using tools like Rufus or Etcher.</p>
+
+                                        <h4>Installation fails with "No root file system defined"</h4>
+                                        <p>This means you need to create a root partition (/) during manual partitioning. Assign at least 5GB to a partition with ext4 filesystem and set the mount point to "/".</p>
+
+                                        <h4>How do I create a bootable USB?</h4>
+                                        <p>Use Rufus (Windows), Etcher (cross-platform), or the dd command (Linux) to write the Q4OS ISO to a USB drive. Ensure the USB is at least 2GB in size.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hardware -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="hardware-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hardware-collapse" aria-expanded="false" aria-controls="hardware-collapse">
+                                        Hardware Support
+                                    </button>
+                                </h2>
+                                <div id="hardware-collapse" class="accordion-collapse collapse" aria-labelledby="hardware-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>My graphics card isn't working properly</h4>
+                                        <p>Try installing proprietary drivers through the Additional Drivers utility in System Settings. For NVIDIA cards, install nvidia-driver packages. For AMD cards, the open-source drivers usually work well.</p>
+
+                                        <h4>WiFi doesn't work after installation</h4>
+                                        <p>Some WiFi adapters require proprietary firmware. Check System Settings → Additional Drivers for available wireless drivers, or install firmware packages manually using ethernet connection first.</p>
+
+                                        <h4>Audio is not working</h4>
+                                        <p>Check the audio device selection in System Settings → Sound. Try switching between different audio outputs (HDMI, analog, etc.). You may need to install additional ALSA or PulseAudio packages.</p>
+
+                                        <h4>My printer is not detected</h4>
+                                        <p>Install the CUPS printing system if not already installed: <code>sudo apt install cups</code>. Most modern printers work automatically, but you may need specific drivers for older models.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Software -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="software-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#software-collapse" aria-expanded="false" aria-controls="software-collapse">
+                                        Software and Applications
+                                    </button>
+                                </h2>
+                                <div id="software-collapse" class="accordion-collapse collapse" aria-labelledby="software-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>How do I install new software?</h4>
+                                        <p>Use the Software Centre for graphical installation, Synaptic for advanced package management, or command line with <code>sudo apt install package-name</code>. See our <a href="dqa006.html">available applications guide</a>.</p>
+
+                                        <h4>Can I run Windows applications?</h4>
+                                        <p>Some Windows applications can run using Wine compatibility layer. Install Wine through the Software Centre and use tools like PlayOnLinux or Lutris for easier Windows software management.</p>
+
+                                        <h4>Where is the Microsoft Office equivalent?</h4>
+                                        <p>Q4OS includes LibreOffice, which is compatible with Microsoft Office documents. For additional compatibility, consider OnlyOffice or WPS Office, both available in the repositories.</p>
+
+                                        <h4>How do I install multimedia codecs?</h4>
+                                        <p>Install ubuntu-restricted-extras package: <code>sudo apt install ubuntu-restricted-extras</code>. This provides MP3, Flash, and other proprietary codec support.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- System Management -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="system-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="false" aria-controls="system-collapse">
+                                        System Management
+                                    </button>
+                                </h2>
+                                <div id="system-collapse" class="accordion-collapse collapse" aria-labelledby="system-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>How do I update Q4OS?</h4>
+                                        <p>Updates appear automatically in the system tray. Use the Update Manager for graphical updates, or run <code>sudo apt update && sudo apt upgrade</code> in terminal.</p>
+
+                                        <h4>How do I change the desktop theme?</h4>
+                                        <p>Go to Trinity Control Center → Appearance & Themes to customize desktop appearance, window decorations, icons, and colors.</p>
+
+                                        <h4>The system is running slowly</h4>
+                                        <p>Check system resources using System Monitor. Consider disabling visual effects, closing unnecessary applications, or adding more RAM if your system has less than 2GB.</p>
+
+                                        <h4>How do I access the terminal?</h4>
+                                        <p>Press Ctrl+Alt+T, or go to Start Menu → System → Terminal (Konsole). You can also right-click on desktop and select "Open Terminal Here".</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Troubleshooting -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="troubleshooting-heading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting-collapse">
+                                        Troubleshooting
+                                    </button>
+                                </h2>
+                                <div id="troubleshooting-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshooting-heading" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h4>The desktop won't start after login</h4>
+                                        <p>This usually indicates a configuration issue. Try logging in to a different user account, or reset Trinity settings by renaming ~/.trinity in your home directory.</p>
+
+                                        <h4>Package installation fails with dependency errors</h4>
+                                        <p>Run <code>sudo apt update</code> first, then <code>sudo apt install -f</code> to fix broken dependencies. If issues persist, try <code>sudo dpkg --configure -a</code>.</p>
+
+                                        <h4>I can't access the internet</h4>
+                                        <p>Check network connections in System Settings → Network. For WiFi, ensure the correct password is entered. For ethernet, check cable connections and router status.</p>
+
+                                        <h4>System freezes or crashes frequently</h4>
+                                        <p>This may indicate hardware issues (RAM, overheating) or driver problems. Check system logs with <code>journalctl -b</code> and consider testing with a live USB to rule out installation issues.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <section class="mt-5" aria-labelledby="additional-help">
+                            <h2 id="additional-help">Need Additional Help?</h2>
+                            <p>If you can't find the answer to your question here, try these resources:</p>
+                            <ul>
+                                <li>Visit the <a href="/forum/" target="_blank" rel="noopener">Q4OS Community Forum</a> for community support</li>
+                                <li>Check the <a href="documents.html">complete documentation</a> for detailed guides</li>
+                                <li>Contact support through the <a href="partner.html">Partner page</a></li>
+                                <li>Read the <a href="dqa007.html">Q4OS Setup and Using guide</a> for comprehensive instructions</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="section contact" role="contentinfo" aria-label="Site footer">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Q4OS</h5>
+                                <nav aria-label="Main pages">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-decoration-underline">Home</a></li>
+                                        <li><a href="downloads.html" class="text-decoration-underline">Downloads</a></li>
+                                        <li><a href="documents.html" class="text-decoration-underline">Documentation</a></li>
+                                        <li><a href="blog.html" class="text-decoration-underline">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Support</h5>
+                                <nav aria-label="Support links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="partner.html" class="text-decoration-underline">Partnership & Support</a></li>
+                                        <li><a href="/forum/" class="text-decoration-underline" target="_blank" rel="noopener">Community Forum</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Community</h5>
+                                <nav aria-label="Social media links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://mastodon.social/@q4os" target="_blank" rel="noopener" class="text-decoration-underline">Mastodon</a></li>
+                                        <li><a href="https://x.com/q4osteam" target="_blank" rel="noopener" class="text-decoration-underline">X (Twitter)</a></li>
+                                        <li><a href="https://github.com/q4os" target="_blank" rel="noopener" class="text-decoration-underline">GitHub</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-4">
+                                <h5 class="text-primary mb-3">Shop</h5>
+                                <nav aria-label="Shop links">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/shop/" class="text-decoration-underline" target="_blank" rel="noopener">Q4OS Shop</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <div class="text-center text-md-end">
+                            <p class="copyright text-black mb-0">
+                                &copy; <span id="current-year">2024</span> Q4OS. All Rights Reserved.<br>
+                                <span style="font-size: 10px;">Site theme by <a href="https://github.com/kevdoy" style="color: #3F51B5; text-decoration: underline;" target="_blank" rel="noopener">KevDoy</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationmodal" tabindex="-1" role="dialog" aria-labelledby="donationmodal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Donate to Q4OS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>If you like Q4OS, please donate us.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="info@q4os.org" />
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="item_name" value="Q4OS Development Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="https://www.q4os.org/redirect1.html" />
+                        <input type="hidden" name="cancel_return" value="https://www.q4os.org/dnt1.html" />
+                        <input type="hidden" name="cbt" value="Continue to Download Q4OS >" />
+                        <input type="hidden" name="cn"
+                               value="Thank you for the contribution, you can let us a message how to utilize your donation:" />
+
+                        <input type="hidden" name="amount" id="amount" />
+
+                        <div class="paySystem">
+                            <div class="opt" id="opt1" onclick="select(this); price=1">
+                                1 $
+                            </div>
+                            <div class="opt" id="opt2" onclick="select(this); price=12">12 $</div>
+                            <div class="opt" id="opt3" onclick="select(this); price=50">50 $</div>
+                            <div class="opt other" id="opt4">
+                                <label>Other: </label><input type="number"
+                                                             id="ownPrice"
+                                                             onkeyup="updateOwnPrice(this); price = parseInt(this.value)" $ />
+
+                            </div>
+                            <div class="splitLine"></div>
+                            <button name="submit" disabled class="disabled" id="sendPriceButt" onclick="document.getElementById('amount').value = price">
+                                Donate
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <script>
+                        var price = 10;
+                        var ownPrice = false;
+                        function select(object) {
+                            console.log("select func");
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.remove("selected");
+                            document.getElementById("sendPriceButt").classList.remove("disabled");
+                            document.getElementById("sendPriceButt").disabled = false;
+
+                            document.getElementById("sendPriceButt").innerText = "Donate";
+                            ownPrice = false;
+                            if (object != document.getElementById("opt4"))
+                                document.getElementById("ownPrice").value = "";
+                            object.classList.add("selected");
+                        }
+
+                        function updateOwnPrice(object) {
+                            document.getElementById("opt1").classList.remove("selected");
+                            document.getElementById("opt2").classList.remove("selected");
+                            document.getElementById("opt3").classList.remove("selected");
+                            document.getElementById("opt4").classList.add("selected");
+                            ownPrice = true;
+
+                            if (object.value == "0") {
+                                document.getElementById("sendPriceButt").innerText = "Get free";
+                            } else {
+                                document.getElementById("sendPriceButt").innerText = "Donate";
+                            }
+
+                            if (object.value == "") {
+                                document.getElementById("sendPriceButt").classList.add("disabled");
+                                document.getElementById("sendPriceButt").disabled = true;
+                            } else {
+                                document.getElementById("sendPriceButt").classList.remove("disabled");
+                                document.getElementById("sendPriceButt").disabled = false;
+                            }
+                        }
+
+                        function sendPrice() {
+                            if (ownPrice) {
+                                price = parseInt(document.getElementById("ownPrice").value);
+                            }
+
+                            window.location.href = "http://google.com/search?q=" + price;
+                        }
+                    </script>
+
+                    <a style="color:rgba(48,63,159, 1); font-size: 12px;" href="downloads.html"><b>Take me to Downloads</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
