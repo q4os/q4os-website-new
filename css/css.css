@@ -54,6 +54,16 @@ input, textarea {
         margin-top: -100%;
     }
 }
+
+#key-features {
+    padding-top: 2rem; /* Add some internal padding */
+    padding-bottom: 2rem;
+    /* Maybe a light top border to separate from welcome text if it remains inside #welcome */
+    border-top: 1px solid #eee;
+}
+#key-features h2 {
+    margin-bottom: 1.5rem; /* Space below the "Key Features of Q4OS" title */
+}
 .current {
 	color: rgba(255,87,34, 1)!important;
 }
